@@ -180,19 +180,18 @@ body{
 }
 .food_box .food_content_box{
     width: 60%;
-    padding-right: 10px;
+    padding: 10px;
 }
 
 .food_img {
     width: 40%;
     text-align: center;
-    height: 165px;
+    min-height: 170px;
 }
 
 .food_img img {
    width:100%;
-   max-height:100%;
-   border-radius: 2px;
+   height:100%;
 }
 .food_img img:hover{
     transform: scale(1.1);
@@ -202,12 +201,10 @@ body{
     text-align: left;
     line-height: 15px;
     margin-bottom: 10px;
-}
-.food_box h3 a{
-    text-decoration: none;
     color: #212121;
     font-size: 14px
 }
+
 
 .food_box p {
     text-align: left;
@@ -525,8 +522,19 @@ inner_easy_order {
 
 
 
-
-
+.foodBoxWrapper {
+    margin: 5px 0px 15px 0px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 3px;
+    min-height: 170px;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    cursor: pointer;
+}
+.foodBoxWrapper:hover{
+    border: 1px solid #212121
+}
 
 /*Footer Style*/
 #appDownload {

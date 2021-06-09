@@ -15,6 +15,16 @@
       cursor: pointer;
       cursor: pointer;
     }
+
+    /*bootstrap override the max width*/
+    .active-sidebar,
+    #render__filtered_items .container, 
+    #render__filtered_items .container-lg, 
+    #render__filtered_items .container-md, 
+    #render__filtered_items .container-sm, 
+    #render__filtered_items .container-xl{
+      max-width: 100%
+    }
 </style>
 @endpush
 

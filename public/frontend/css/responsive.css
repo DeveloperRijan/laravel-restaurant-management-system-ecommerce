@@ -119,17 +119,6 @@ button#toggleMenuBar{
     font-size: 60px;
   }
 
-  .foodBoxWrapper {
-    margin: 5px 0px 15px 0px;
-    border: 1px solid rgb(221, 221, 221);
-    border-radius: 3px;
-    padding: 7px;
-    min-height: 185px;
-    position: relative;
-    background-color: #fff;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
-  }
-
   .order_box {
     max-width: 380px;
     width: 31%;

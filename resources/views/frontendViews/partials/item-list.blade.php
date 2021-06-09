@@ -7,7 +7,7 @@
      <div class="foodBoxWrapper">
          <div class="food_box">
              <div class="food_content_box">
-               <h3><a href="{{route('item.details.page', $product->slug)}}">{{$product->title}}</a></h3>
+               <h3>{{$product->title}}</h3>
                <p class="short-des">
                  <?php
                     $limitChars = \Config::get('constants.PRODUCT.DESCRIPTION_LENGTH_SHOW');
@@ -20,9 +20,7 @@
                </div>
              </div>
              <div class="food_img">
-                 <a href="{{route('item.details.page', $product->slug)}}">
-                    <img src="{{$imgSrc}}" alt="{{$product->title}}" />
-                 </a>
+                <img src="{{$imgSrc}}" alt="{{$product->title}}" />
              </div>
          </div>
      </div>

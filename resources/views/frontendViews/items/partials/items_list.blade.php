@@ -8,38 +8,30 @@
             $images = json_decode($product->images, true);
             $imgSrc = $publicAssetsPathStart.\Config::get("constants.FILE_PATH.PRODUCT").$images[0];
          ?>
-         <div class="col-lg-4 col-md-6 col-sm-6">
-           <div class="foodBoxWrapper">
-               <div class="food_box">
-                   <div class="food_img">
-                       <a href="{{route('item.details.page', $product->slug)}}">
-                          <img src="{{$imgSrc}}" alt="{{$product->title}}" />
-                       </a>
-                   </div>
+         
+           <div class="col-lg-4 col-md-4 col-sm-12">
+             <div class="foodBoxWrapper">
+                 <div class="food_box">
+                     <div class="food_content_box">
+                       <h3>{{$product->title}}</h3>
+                       <p class="short-des">
+                         <?php
+                            $limitChars = \Config::get('constants.PRODUCT.DESCRIPTION_LENGTH_SHOW');
+                            echo \Str::words($product->description, $limitChars);
+                         ?>
+                       </p>
 
-                   <h3><a href="{{route('item.details.page', $product->slug)}}">{{$product->title}}</a></h3>
-                   <p>{{$product->get_category->name}} | <small class="stock_status">{{$product->stock_status}}</small></p>
-
-                   <div class="pricing">
-                       <h4><span>{{env("CURRENCY_SYMBOL")}}</span>{{$product->price}}</h4>
-                       <a href="{{route('orderNow.item', encrypt($product->id))}}" class="@if(!Auth::check()) _showLoginModal @endif"  >Order Now</a>
-                   </div>
-               </div>
-
-               <div class="restaurant">
-                   <div class="restaurant_name text-center">
-                       <button class="w-100 text-uppercase @if(Auth::check()) addToCart @else _showLoginModal @endif"
-                          item_id="{{encrypt($product->id)}}" 
-                       ><i class="fas fa-shopping-cart"></i> <span class="add_to_cart_txt">Add to cart</span></button>
-                   </div>
-                   <div class="love_react 
-                      @if(Auth::check()) loveThisItem @else _showLoginModal @endif" item_id="{{encrypt($product->id)}}">
-                       <div><i class="far fa-heart"></i></div>
-                       <p>{{$product->feedbackFormat($product->total_feedback)}}</p>
-                   </div>
-               </div>
+                       <div class="pricing">
+                           <h4><span>{{env("CURRENCY_SYMBOL")}}</span>{{$product->price}}</h4>
+                       </div>
+                     </div>
+                     <div class="food_img">
+                        <img src="{{$imgSrc}}" alt="{{$product->title}}" />
+                     </div>
+                 </div>
+             </div>
            </div>
-         </div>
+
         @endforeach
 
       @else
