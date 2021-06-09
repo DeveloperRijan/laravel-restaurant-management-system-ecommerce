@@ -1,0 +1,381 @@
+.alert-danger{
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+.alert-success{
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+button#toggleMenuBar{
+  display: none;
+  border: none;
+  background: transparent;
+  color: #fff;
+  margin-top: 8px;
+}
+
+/*mobile menu*/
+#mobile--menu .mobile_menu_wrapper{
+  height: 100vh;
+  background: #ddd;
+  opacity: 1;
+  width: 70%;
+}
+
+#mobile--menu .mobile_menu_wrapper ul{
+  padding: 0;
+  margin: 0;
+  outline: 0
+}
+#mobile--menu .mobile_menu_wrapper li a{
+    display: block;
+    padding: 7px 14px;
+    border-bottom: 1px solid #fff;
+}
+#mobile--menu .mobile_menu_wrapper li a:hover{
+  background: #dc4e1c;
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+
+  /* Header Section */
+
+  .menuSection {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .download {
+    justify-content: flex-start;
+  }
+  .logo_area {
+    width: 150px;
+    margin: 20px 0;
+    float: left;
+  }
+
+  .logo_area .logo {
+    width: 150px;
+    margin: auto;
+  }
+
+  .logo_area .logo img {
+    width: 100%;
+    display: block;
+  }
+.app_details {
+    width: 48%;
+    padding: 0 15px;
+    margin-top: 177px;
+    float: left;
+}
+  .menu_area {
+    /*max-width: 965px;*/
+    width: 100%;
+    float: left;
+  }
+
+  .menu_area ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu_area ul li {
+    width: auto;
+    background-color: transparent;
+    border: none;
+    margin: 0 15px;
+    padding: 0;
+    border-radius: none;
+    font-weight: 500;
+  }
+
+  .menu_area ul li a {
+    color: rgb(209, 209, 209);
+  }
+
+  .location,
+  .food,
+  .delivery {
+    width: 33%;
+    float: left;
+  }
+
+  .search_field {
+    margin: 60px 0 60px 0;
+  }
+
+  .hero_area h1 {
+    margin: 152px 0;
+    margin-bottom: 45px;
+    font-size: 60px;
+  }
+
+  .foodBoxWrapper {
+    margin: 5px 0px 15px 0px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 3px;
+    padding: 7px;
+    min-height: 185px;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+  }
+
+  .order_box {
+    max-width: 380px;
+    width: 31%;
+    float: left;
+    margin: 1%;
+
+  }
+
+  .inner_easy_order h2 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: rgb(233, 233, 233);
+    text-align: center;
+  }
+
+
+
+  /*mobile menu*/
+  #mobile--menu .mobile_menu_wrapper{
+    height: 100vh;
+    background: #ddd;
+    opacity: 1;
+    width: 70%;
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  /* Header Section */
+
+  .logo_area {
+    width: 100px;
+  }
+
+  .logo_area .logo {
+    width: 100%;
+  }
+
+  .menu_area ul li {
+    margin: 0 5px;
+  }
+
+  .leftCards {
+    width: 48%;
+    float: left;
+
+  }
+  .app_details {
+    width: 48%;
+    padding: 0 15px;
+    margin-top: 177px;
+    float: left;
+}
+  .rightCards {
+    width: 48%;
+    float: left;
+
+  }
+  .app_image {
+    width: 48%;
+    float: left;
+    margin-bottom: -50px;
+}
+.app_image {
+  width: 48%;
+  float: left;
+}
+}
+
+
+
+
+@media screen and (min-width:1200px) {
+  .leftCards {
+    width: 48%;
+    float: left;
+
+  }
+
+  .rightCards {
+    width: 48%;
+    float: left;
+
+  }
+  .app_details {
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 87px;
+    float: left;
+    margin-bottom: 60px;
+}
+  .app_image {
+    width: 48%;
+    float: left;
+    margin-bottom: -50px;
+}
+}
+
+@media screen and (min-width:500px) {
+  .menuBar ul li a {
+    color: black;
+    transition: .3s;
+    font-size: 13px;
+    margin: 0px 15px;
+    
+  }
+  .footer_box {
+    padding: 5px;
+    width: 33%;
+    float: left;
+    margin-bottom: 15px;
+}
+  .menuBar h4 {
+    width: 29%;
+    float: left;
+    font-size: 14px;
+  }
+  .Paymnet {
+    color: rgb(197, 197, 197);
+    text-align: center;
+    padding: 100px 0;
+}
+}
+
+@media screen and (min-width:800px) {
+  .menuBar ul li a {
+    color: black;
+    transition: .3s;
+    font-size: 22px;
+    margin: 0px 15px;
+  }
+  .app_image {
+    width: 100%;
+    float: left;
+    margin-bottom: -50px;
+}
+
+  .menuBar h4 {
+    width: 29%;
+    float: left;
+    font-size: 22px;
+  }
+  .footer_box2 {
+    width: 33%;
+    float: left;
+    padding: 1px;
+}
+}
+@media screen and (min-width:992px) and (max-width:1200px) {
+  .app_details {
+    width: 48%;
+    padding: 0 15px;
+    margin-top: 100px;
+    float: left;
+}
+.footer_box {
+  padding: 5px;
+  width: 20% !important;
+  float: left;
+  margin-bottom: 15px;
+}
+.footer_box2 {
+  width: 33%;
+  float: left;
+  padding: 1px;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+
+  .foodBoxWrapper {
+    width: 48%;
+    float: left;
+    margin: 0 1%;
+  }
+  .app_details {
+    width: 48%;
+    padding: 0 15px;
+    margin-top: 0px;
+    float: left;
+}
+  .leftCards {
+    width: 48%;
+    float: left;
+
+  }
+
+  .rightCards {
+    width: 48%;
+    float: left;
+
+  }
+  .footer_box {
+    padding: 5px;
+    width: 25%;
+    float: left;
+    margin-bottom: 15px;
+}
+.footer_box2 {
+  width: 33%;
+  float: left;
+  padding: 1px;
+}
+}
+@media screen and (min-width:1200px) {
+  .footer_box {
+    padding: 5px;
+    width: 20%;
+    float: left;
+    margin-bottom: 15px;
+}
+.footer_box2 {
+  width: 100%;
+  float: left;
+  padding: 1px;
+}
+}
+
+
+
+
+/*menu responsive*/
+@media screen and (max-width: 767px) {
+  button#toggleMenuBar{
+    float: right;
+    display: block;
+    margin-right: 20px;
+    font-size: 40px;
+    margin-top: 15px;
+    margin-bottom: -80px;
+  }
+
+  .menu_area ul li a{
+    color: #fff;
+    display: block;
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+  .menu_area ul{
+    display: none;
+  }
+  
+
+  span.add_to_cart_txt{
+    display: none;
+  }
+}

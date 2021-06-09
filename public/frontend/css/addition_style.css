@@ -1,0 +1,36 @@
+.home_section_headerTxt{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    height: 80px;
+    font-size: 35px;
+    padding-left: 21px;
+    border-width: 1px;
+    color: #ff5401;
+    border-style: dashed;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+}
+
+#profileViewMode > tbody > tr{
+    height:60px;
+    vertical-align: middle;
+}
+
+#profileViewMode{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    margin-bottom: 3rem;
+}
+
+#v-pills-tabContent > div{
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 3rem;
+}
+
+#v-pills-tab{
+    padding:15px;
+}

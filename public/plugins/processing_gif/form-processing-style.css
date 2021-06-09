@@ -1,0 +1,24 @@
+/*style for form processing gif*/
+#form__processing__gif{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#form__processing__gif .gif_wrapper_{
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999999;
+    position: fixed;
+    text-align: center;
+    background: #eee;
+    opacity: .8;
+    padding-top: 15%;
+}
+#form__processing__gif img{
+    width: 120px;
+    height: 120px;
+}
+/*style for form processing gif end here*/

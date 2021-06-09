@@ -1,0 +1,571 @@
+#loginRegisterModal .modal-header{
+	display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+#loginRegisterModal .modal-header h5{
+	font-size: 22px
+}
+
+
+#loginRegisterModal .socials {
+	list-style-type: none;
+	margin: 0;
+	padding: 0
+}
+
+
+#loginRegisterModal input,
+#loginRegisterModal select,
+#loginRegisterModal textarea {
+	outline: none;
+	appearance: unset!important;
+	-moz-appearance: unset!important;
+	-webkit-appearance: unset!important;
+	-o-appearance: unset!important;
+	-ms-appearance: unset!important
+}
+
+#loginRegisterModal input::-webkit-outer-spin-button,
+#loginRegisterModal input::-webkit-inner-spin-button {
+	appearance: none!important;
+	-moz-appearance: none!important;
+	-webkit-appearance: none!important;
+	-o-appearance: none!important;
+	-ms-appearance: none!important;
+	margin: 0
+}
+
+#loginRegisterModal input:focus,
+#loginRegisterModal select:focus,
+#loginRegisterModal textarea:focus {
+	outline: none;
+	box-shadow: none!important;
+	-moz-box-shadow: none!important;
+	-webkit-box-shadow: none!important;
+	-o-box-shadow: none!important;
+	-ms-box-shadow: none!important
+}
+
+#loginRegisterModal input[type=checkbox] {
+	appearance: checkbox!important;
+	-moz-appearance: checkbox!important;
+	-webkit-appearance: checkbox!important;
+	-o-appearance: checkbox!important;
+	-ms-appearance: checkbox!important
+}
+
+#loginRegisterModal input[type=radio] {
+	appearance: radio!important;
+	-moz-appearance: radio!important;
+	-webkit-appearance: radio!important;
+	-o-appearance: radio!important;
+	-ms-appearance: radio!important
+}
+
+#loginRegisterModal img {
+	max-width: 100%;
+	height: auto
+}
+
+#loginRegisterModal figure {
+	margin: 0
+}
+
+#loginRegisterModal p {
+	margin-bottom: 0;
+	font-size: 15px;
+	color: #777
+}
+
+#loginRegisterModal h2 {
+	line-height: 1.66;
+	margin: 0;
+	padding: 0;
+	font-weight: 700;
+	color: #222;
+	font-family: Poppins;
+	font-size: 36px
+}
+
+#loginRegisterModal .main {
+	padding: 0
+}
+
+#loginRegisterModal .clear {
+	clear: both
+}
+
+
+#loginRegisterModal .display-flex {
+	justify-content: space-between;
+	-moz-justify-content: space-between;
+	-webkit-justify-content: space-between;
+	-o-justify-content: space-between;
+	-ms-justify-content: space-between;
+	align-items: center;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+	-o-align-items: center;
+	-ms-align-items: center
+}
+
+#loginRegisterModal .display-flex-center {
+	justify-content: center;
+	-moz-justify-content: center;
+	-webkit-justify-content: center;
+	-o-justify-content: center;
+	-ms-justify-content: center;
+	align-items: center;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+	-o-align-items: center;
+	-ms-align-items: center
+}
+
+#loginRegisterModal .position-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%)
+}
+
+#loginRegisterModal .signup {
+	margin-bottom: 150px
+}
+
+#loginRegisterModal .signup-content {
+	padding: 10px 0
+}
+
+#loginRegisterModal .signup-form,
+#loginRegisterModal .signup-image,
+#loginRegisterModal .signin-form,
+#loginRegisterModal .signin-image {
+	width: 50%;
+	overflow: hidden
+}
+
+#loginRegisterModal .signup-image {
+	margin: 0 55px
+}
+
+#loginRegisterModal .form-title {
+	margin-bottom: 33px
+}
+
+#loginRegisterModal .signup-image {
+	margin-top: 45px
+}
+
+#loginRegisterModal figure {
+	margin-bottom: 50px;
+	text-align: center
+}
+
+#loginRegisterModal .form-submit {
+	display: inline-block;
+	background: #6dabe4;
+	color: #fff;
+	border-bottom: none;
+	width: auto;
+	padding: 15px 39px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	margin-top: 25px;
+	cursor: pointer
+}
+
+#loginRegisterModal .form-submit:hover {
+	background: #4292dc
+}
+
+#loginRegisterModal #signin {
+	margin-top: 16px
+}
+
+#loginRegisterModal .signup-image-link {
+	font-size: 14px;
+	color: #222;
+	display: block;
+	text-align: center;
+	text-decoration: underline;
+}
+
+#loginRegisterModal .term-service {
+	font-size: 13px;
+	color: #222;
+	text-decoration: underline;
+}
+
+#loginRegisterModal .signup-form {
+	margin-left: 75px;
+	margin-right: 75px;
+	padding-left: 34px
+}
+
+#loginRegisterModal .register-form {
+	width: 100%
+}
+
+#loginRegisterModal .form-group {
+	position: relative;
+	margin-bottom: 25px;
+	overflow: hidden
+}
+
+#loginRegisterModal .form-group:last-child {
+	margin-bottom: 0
+}
+
+#loginRegisterModal input {
+	width: 100%;
+	display: block;
+	border: none;
+	border-bottom: 1px solid #999;
+	padding: 6px 30px;
+	font-family: Poppins;
+	box-sizing: border-box
+}
+
+#loginRegisterModal input::-webkit-input-placeholder {
+	color: #999
+}
+
+#loginRegisterModal input::-moz-placeholder {
+	color: #999
+}
+
+#loginRegisterModal input:-ms-input-placeholder {
+	color: #999
+}
+
+#loginRegisterModal input:-moz-placeholder {
+	color: #999
+}
+
+#loginRegisterModal input:focus {
+	border-bottom: 1px solid #222
+}
+
+#loginRegisterModal input:focus::-webkit-input-placeholder {
+	color: #222
+}
+
+#loginRegisterModal input:focus::-moz-placeholder {
+	color: #222
+}
+
+#loginRegisterModal input:focus:-ms-input-placeholder {
+	color: #222
+}
+
+#loginRegisterModal input:focus:-moz-placeholder {
+	color: #222
+}
+
+#loginRegisterModal input[type=checkbox]:not(old) {
+	width: 2em;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	display: none
+}
+
+#loginRegisterModal input[type=checkbox]:not(old)+label {
+	display: inline-block;
+	line-height: 1.5em;
+	margin-top: 6px;
+	font-size: 12px
+}
+
+#loginRegisterModal input[type=checkbox]:not(old)+label>span {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	margin-right: 15px;
+	margin-bottom: 3px;
+	border: 1px solid #999;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-o-border-radius: 2px;
+	-ms-border-radius: 2px;
+	background: #fff;
+	background-image: -moz-linear-gradient(white, white);
+	background-image: -ms-linear-gradient(white, white);
+	background-image: -o-linear-gradient(white, white);
+	background-image: -webkit-linear-gradient(white, white);
+	background-image: linear-gradient(white, white);
+	vertical-align: bottom
+}
+
+#loginRegisterModal input[type=checkbox]:not(old):checked+label>span {
+	background-image: -moz-linear-gradient(white, white);
+	background-image: -ms-linear-gradient(white, white);
+	background-image: -o-linear-gradient(white, white);
+	background-image: -webkit-linear-gradient(white, white);
+	background-image: linear-gradient(white, white)
+}
+
+#loginRegisterModal input[type=checkbox]:not(old):checked+label>span:before {
+	content: '\f26b';
+	display: block;
+	color: #222;
+	font-size: 11px;
+	line-height: 1.2;
+	text-align: center;
+	font-family: material-design-iconic-font;
+	font-weight: 700
+}
+
+#loginRegisterModal .agree-term {
+	display: inline-block;
+	width: auto
+}
+
+#loginRegisterModal label {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	color: #222
+}
+
+#loginRegisterModal .label-has-error {
+	top: 22%
+}
+
+#loginRegisterModal label.error {
+	position: relative;
+	background: url(../images/unchecked.gif) no-repeat;
+	background-position-y: 3px;
+	padding-left: 20px;
+	display: block;
+	margin-top: 20px
+}
+
+#loginRegisterModal label.valid {
+	display: block;
+	position: absolute;
+	right: 0;
+	left: auto;
+	margin-top: -6px;
+	width: 20px;
+	height: 20px;
+	background: 0 0
+}
+
+#loginRegisterModal label.valid:after {
+	font-family: material-design-iconic-font;
+	content: '\f269';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	font-size: 16px;
+	color: green
+}
+
+#loginRegisterModal .label-agree-term {
+	position: relative;
+	top: 0%;
+	transform: translateY(0);
+	-moz-transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-o-transform: translateY(0);
+	-ms-transform: translateY(0)
+}
+
+#loginRegisterModal .material-icons-name {
+	font-size: 18px
+}
+
+#loginRegisterModal .signin-content {
+	padding-top: 67px;
+	padding-bottom: 87px
+}
+
+#loginRegisterModal .social-login {
+	align-items: center;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+	-o-align-items: center;
+	-ms-align-items: center;
+	margin-top: 80px
+}
+
+#loginRegisterModal .social-label {
+	display: inline-block;
+	margin-right: 15px
+}
+
+#loginRegisterModal .socials li {
+	padding: 5px
+}
+
+#loginRegisterModal .socials li:last-child {
+	margin-right: 0
+}
+
+#loginRegisterModal .socials li a {
+	text-decoration: none
+}
+
+#loginRegisterModal .socials li a i {
+	width: 30px;
+	height: 30px;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out
+}
+
+#loginRegisterModal .socials li:hover a i {
+	-webkit-transform: scale(1.3) translateZ(0);
+	transform: scale(1.3) translateZ(0)
+}
+
+#loginRegisterModal .zmdi-facebook {
+	background: #3b5998
+}
+
+#loginRegisterModal .zmdi-twitter {
+	background: #1da0f2
+}
+
+#loginRegisterModal .zmdi-google {
+	background: #e72734
+}
+
+#loginRegisterModal .signin-form {
+	margin-right: 90px;
+	margin-left: 80px
+}
+
+#loginRegisterModal .signin-image {
+	margin-left: 110px;
+	margin-right: 20px;
+	margin-top: 10px
+}
+
+@media screen and (max-width:1200px) {
+	#loginRegisterModal .container {
+		width: calc( 100% - 30px);
+		max-width: 100%
+	}
+}
+
+
+
+
+@media screen and (max-width:768px) {
+	#loginRegisterModal .signup-content,
+	#loginRegisterModal .signin-content {
+		flex-direction: column;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-o-flex-direction: column;
+		-ms-flex-direction: column;
+		justify-content: center;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-o-justify-content: center;
+		-ms-justify-content: center
+	}
+	#loginRegisterModal .signup-form {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 0;
+		padding: 0 30px
+	}
+	#loginRegisterModal .signin-image {
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 50px;
+		order: 2;
+		-moz-order: 2;
+		-webkit-order: 2;
+		-o-order: 2;
+		-ms-order: 2
+	}
+	#loginRegisterModal .signup-form,
+	#loginRegisterModal .signup-image,
+	#loginRegisterModal .signin-form,
+	#loginRegisterModal .signin-image {
+		width: auto
+	}
+	#loginRegisterModal .social-login {
+		justify-content: center;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-o-justify-content: center;
+		-ms-justify-content: center
+	}
+	#loginRegisterModal .form-button {
+		text-align: center
+	}
+	#loginRegisterModal .signin-form {
+		order: 1;
+		-moz-order: 1;
+		-webkit-order: 1;
+		-o-order: 1;
+		-ms-order: 1;
+		margin-right: 0;
+		margin-left: 0;
+		padding: 0 30px
+	}
+	#loginRegisterModal .form-title {
+		text-align: center
+	}
+}
+
+@media screen and (max-width:400px) {
+	#loginRegisterModal .social-login {
+		flex-direction: column;
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-o-flex-direction: column;
+		-ms-flex-direction: column
+	}
+	#loginRegisterModal .social-label {
+		margin-right: 0;
+		margin-bottom: 10px
+	}
+}
+
+
+
+
+@media (min-width: 576px){
+	.modal-dialog{
+		max-width: 900px;
+    	margin: 30px auto;
+	}
+}

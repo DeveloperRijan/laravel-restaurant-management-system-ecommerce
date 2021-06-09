@@ -1,0 +1,316 @@
+.navbar-light .navbar-nav .nav-link{
+	color: #fff !important
+}
+.navbar-light .navbar-nav .active>.nav-link, 
+.navbar-light .navbar-nav .nav-link.active, 
+.navbar-light .navbar-nav .nav-link.show, 
+.navbar-light .navbar-nav .show>.nav-link{
+	color: #fff !important
+}
+
+
+
+li.account_menu a{
+    border: 3px dashed #fff;
+    border-radius: 3px;
+    padding: 6px 20px;
+    text-align: center;
+}
+
+
+form input.btn-group1{
+	width: 100%
+}
+form input.btn-group1:focus{
+	box-shadow: none !important;
+    border: none !important;
+    outline: none;
+}
+form input.btn-group1 + button[type=submit]{
+	box-shadow: none !important;
+    border: none !important;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+section.main-menu-block .category-responsive .category-block div.category-img{
+	width: 100% !important;
+}
+section.main-menu-block .category-responsive .category-block div.category-img img{
+	width: 60px
+}
+
+
+div.featured-title-box button.action_btn{
+	width: 100%;
+    border: 1px solid #ddd;
+    background: transparent;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 3px;
+    border-radius: 3px
+}
+div.featured-title-box button.action_btn:hover{
+	transform: scale(1.1);
+	transition: .5s
+}
+
+
+div.featured-responsive .featured-rating-orange{
+	padding: 11px
+}
+div.featured-responsive .featured-rating-orange span.rate_point{
+	font-size: 16px;
+}
+div.featured-responsive div.bottom-icons span{
+	cursor: pointer;
+}
+div.featured-responsive div.bottom-icons span:hover{
+	transform: scale(1.1);
+	transition: .5s
+}
+
+
+
+/*slider*/
+.swiper-container #imagesCarosuel .carousel-item img{
+	width: 100%
+}
+
+
+
+
+/*account*/
+.account-section{
+	padding-top: 25px;
+	min-height: 600px;
+    margin-bottom: 150px
+}
+.account-section div.nav a.nav-link{
+	width: 100%
+}
+
+.account-section div.left_part .nav{
+	background: #fff;
+	min-height: 410px
+}
+.account-section div.right_part .tab-content{
+	background: #fff;
+	padding: 10px
+}
+.account-section div.nav a.nav-link:hover{
+	transform: scale(1.1);
+	text-transform: uppercase;
+}
+
+
+
+/*cart_icon desing*/
+li.top_reservation_li{
+	border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0px 5px;
+    text-align: center;
+    background: transparent;
+}
+li.top_reservation_li a{
+	text-transform: uppercase;
+    font-weight: 600 !important;
+}
+li.top_reservation_li a span{
+	font-size: 16px;
+}
+
+
+/*reservation modal*/
+form#reservationForm input{
+	width: 100%; 
+	border: none; 
+	border: 1px solid #ddd; 
+	padding: 5px; 
+	border-radius: 3px;
+	outline: none;
+}
+
+
+
+
+.margin_bottom_15{
+	margin-bottom: 25px
+}
+
+
+/*frontend product block*/
+.heading-wrapper{
+	display: flex !important;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    border-bottom: 1px solid #212121;
+    border-radius: 2px
+}
+.heading-wrapper div.heading h3{
+	font-size: 30px;
+	text-transform: uppercase;
+}
+.image-block-wrapper{
+	width: 100%;
+    height: 230px;
+    padding: 10px
+}
+.image-block-wrapper img{
+	max-width: 100%;
+	max-height: 100%
+}
+
+
+/*laravel pagination*/
+.pagination{
+	display: flex;
+	justify-content: center;
+}
+ul.pagination .page-item{
+	padding: 0px;
+    border: 0px solid #ddd;
+    margin: 2px;
+    border-radius: 2px;
+    background: #ddd;
+}
+ul.pagination li.page-item .page-link{
+	padding: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+ul.pagination li.page-item:hover{
+	background: #999;
+}
+ul.pagination  li.active{
+	background: #ff3a6d;
+    color: #fff;
+}
+
+
+
+/*alert designing*/
+.alert-danger{
+	color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-success{
+	color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+
+/*details page*/
+.reserve-btn .featured-btn-wrap{
+	display: flex;
+	justify-content: start;
+}
+.reserve-btn .btn-pg{
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+
+/*total like design*/
+.reserve-btn .total_liked_btn{
+	border: none;
+    position: relative;
+}
+.reserve-btn .total_liked_btn .likedNumber{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 9999;
+}
+.reserve-btn .total_liked_btn .fa-heart{
+	font-size: 54px;
+    border-radius: 50%;
+    padding: 3px;
+    position: relative;
+    color: red
+}
+
+.single-item-page .reserve-btn .like-it,
+.single-item-page .reserve-btn .add-to-cart
+{
+	border-radius: 3px;
+    font-size: 20px;
+    width: 50%;
+    background: transparent;
+    color: #dc4e1c;
+    margin-right: 5px;
+    border: 2px dashed #dc4e1c;
+}
+
+.single-item-page .reserve-btn .like-it:hover,
+.single-item-page .reserve-btn .add-to-cart:hover{
+    background-color: #e8500e;
+    color: #fff;
+}
+
+.single-item-page .order-now-link{
+    width: 100%;
+    cursor: pointer;
+    color: #e8500e;
+    background: transparent;
+    border: 3px dashed #e8500e;
+    padding: 10px 0px;
+    outline: none;
+    text-transform: uppercase;
+}
+.single-item-page .order-now-link:hover{
+    background-color: #e8500e;
+    color: #fff;
+}
+
+
+.single-item-page .pricing-info-box{
+    margin-bottom: 20px
+}
+
+
+/*slider css*/
+.single-item-page #carouselExampleControls .carousel-item{
+    height: 300px
+}
+.single-item-page #carouselExampleControls .carousel-item img{
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+
+/*customer panel pages heading*/
+.page--heading{
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+
+
+
+.footer_box2 ul.social-icons{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0
+}
+.footer_box2 ul.social-icons li img{
+    width: 50px
+}
