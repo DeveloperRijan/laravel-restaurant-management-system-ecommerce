@@ -177,10 +177,83 @@ $(document).ready(function(){
             	$(this).attr('disabled', false)
             }
         });
+
 	})
 
 
+
+	//load product deatils - init modal
+	$("body").on("click", "div.food_box", function(){
+		let productID = $(this).attr('item_id')
+		let type = $(this).attr('type')
+		loadProductDetails(productID, type)
+	})
+
 });
+
+//load item details
+var loadingDataState = false
+function loadProductDetails(productID, type){
+	//console.log(productID)
+	//console.log(type)
+	
+	if (loadingDataState === true) {
+		return
+	}
+
+	if (productID === '' || type === '') {
+		Swal.fire({
+		  icon: 'info',
+		  title: 'SORRY',
+		  text: "Invalid request - please refresh the page and try again!",
+		  footer: ""
+		});
+		return
+	}
+
+	$.ajax({
+		url: "/load_product_details?product_id="+productID+"&type="+type,
+		method: "GET",
+		dataType: 'HTML',
+		cache: false,
+		beforeSend:function(){
+			loadingDataState = true
+		},
+		success: function(response){
+			loadingDataState = false
+			$("div#loadDynamicProductDetailsHTML").html(response)
+			$("div#productDetailsModal__").modal("show")
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			$(this).attr('disabled', false)
+			loadingDataState = false
+
+			let string_to_obj = JSON.parse(jqXHR.responseText)
+
+			if (jqXHR.status === 422) {
+              	
+              	Swal.fire({
+				  icon: 'info',
+				  title: 'SORRY',
+				  text: string_to_obj.msg,
+				  footer: ''
+				})
+
+            }else{
+              	Swal.fire({
+				  icon: 'info',
+				  title: 'SORRY',
+				  text: "Something went wrong.",
+				  footer: ''
+				})
+            }
+
+        },
+        complete:function(){
+        	loadingDataState = false
+        }
+    });
+}
 
 
 

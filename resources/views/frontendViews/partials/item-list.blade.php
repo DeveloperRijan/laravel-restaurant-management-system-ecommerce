@@ -5,7 +5,7 @@
    ?>
    <div class="col-lg-4 col-md-4 col-sm-12">
      <div class="foodBoxWrapper">
-         <div class="food_box">
+         <div class="food_box" item_id="{{encrypt($product->id)}}" type="{{encrypt('Main')}}">
              <div class="food_content_box">
                <h3>{{$product->title}}</h3>
                <p class="short-des">

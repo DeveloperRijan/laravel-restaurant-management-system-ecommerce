@@ -1077,28 +1077,7 @@ inner_easy_order {
 
 
 
-/*single-item-page*/
-.single-item-page{
-    padding: 30px
-}
-.single-item-page .title-box{
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-.single-item-page h5.title{
-    font-size: 22px;
-    margin-right: 5px
-}
-.single-item-page p span.fa-heart{
-    color: red
-}
 
-.single-item-page .booking-checkbox_wrap{
-    padding: 15px;
-    border-top: 2px dashed #ddd;
-    margin-top: 50px;
-}
 
 
 
@@ -1135,9 +1114,100 @@ inner_easy_order {
 }
 
 
+/*product detials carosuel*/
+#loadDynamicProductDetailsHTML .carousel-item{
+    height: 400px
+}
+#loadDynamicProductDetailsHTML .carousel-item img{
+    width: 100%;
+    max-height: 100%
+}
+#loadDynamicProductDetailsHTML .txt-wrapper{
+    padding: 15px
+}
+
+#loadDynamicProductDetailsHTML .txt-wrapper .title-box{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+#loadDynamicProductDetailsHTML .txt-wrapper h5.title{
+    font-size: 22px;
+    margin-right: 5px
+}
+#loadDynamicProductDetailsHTML .txt-wrapper p span.fa-heart{
+    color: red
+}
+
+#loadDynamicProductDetailsHTML .txt-wrapper .booking-checkbox_wrap{
+    padding: 15px;
+    border-top: 2px dashed #ddd;
+    margin-top: 50px;
+}
 
 
 
+#loadDynamicProductDetailsHTML .txt-wrapper .reserve-btn .total_liked_btn{
+    border: none;
+    position: relative;
+}
+#loadDynamicProductDetailsHTML .txt-wrapper .reserve-btn .total_liked_btn .likedNumber{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 9999;
+}
+#loadDynamicProductDetailsHTML .txt-wrapper .reserve-btn .total_liked_btn .fa-heart{
+    font-size: 54px;
+    border-radius: 50%;
+    padding: 3px;
+    position: relative;
+    color: red
+}
+
+#loadDynamicProductDetailsHTML .txt-wrapper .reserve-btn .like-it,
+#loadDynamicProductDetailsHTML .txt-wrapper .reserve-btn .add-to-cart
+{
+    border-radius: 3px;
+    font-size: 20px;
+    background: transparent;
+    color: #dc4e1c;
+    margin-right: 5px;
+    border: 1px dashed #dc4e1c;
+    padding: 0px 31px;
+}
+
+#loadDynamicProductDetailsHTML .txt-wrapper .reserve-btn .like-it:hover,
+#loadDynamicProductDetailsHTML .txt-wrapper .reserve-btn .add-to-cart:hover{
+    background-color: #e8500e;
+    color: #fff;
+}
+
+#loadDynamicProductDetailsHTML .txt-wrapper .order-now-link{
+    width: 100%;
+    cursor: pointer;
+    color: #e8500e;
+    background: transparent;
+    border: 3px dashed #e8500e;
+    padding: 10px 0px;
+    outline: none;
+    text-transform: uppercase;
+}
+#loadDynamicProductDetailsHTML .txt-wrapper .order-now-link:hover{
+    background-color: #e8500e;
+    color: #fff;
+}
+
+
+#loadDynamicProductDetailsHTML .txt-wrapper .pricing-info-box{
+    margin-bottom: 20px
+}
+
+
+
+/*responsive elements*/
 .mobile--v{
     display: none;
 }

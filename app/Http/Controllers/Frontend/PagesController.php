@@ -164,4 +164,34 @@ class PagesController extends Controller
         $products = $query->orderBy("created_at", "DESC")->paginate(\Config::get('constants.PRODUCT.ITEMS_PAGINATE'));
         return view("frontendViews.items.partials.staff_items_list", compact('products'))->render();
     }
+
+
+    //load details
+    public function load_product_details(Request $request){
+        if (!\Request::ajax()) {
+            return abort(404);
+        }
+        
+        if ($request->product_id == '') {
+            return response()->json(["msg"=>"Product ID is required"], 422);
+        }
+
+        if ($request->type == '') {
+            return response()->json(["msg"=>"Type is required"], 422);
+        }
+
+        $productDetailsData = Product::where([
+            "id"=>decrypt($request->product_id),
+            "type"=>decrypt($request->type),
+            "status"=>"Active"
+        ])->first();
+
+
+        if (!$productDetailsData) {
+            return response()->json(["msg"=>"Product/Item Not Found"], 422);    
+        }
+
+        $deliverCharge = DeliveryCharge::where('type', 'General')->first();
+        return view("frontendViews.partials.product_details_modal", compact('productDetailsData', 'deliverCharge'))->render(); 
+    }
 }

@@ -76,6 +76,7 @@ Route::get("/staff/items", [PagesController::class, "staff_item_list"])->name("s
 Route::get("/filter_items", [PagesController::class, "filter_items"]);
 Route::get("/filter_staff_items", [PagesController::class, "filter_staff_items"]);
 Route::get("/details/{slug}", [PagesController::class, "item_details"])->name("item.details.page");
+Route::get("/load_product_details", [PagesController::class, "load_product_details"])->name("item.details.load");
 Route::post("/search_post_code", [SearchPostCodeController::class, "search_post_code"])->name("postcode.detectCollectionOrDelivery");
 
 

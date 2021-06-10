@@ -135,6 +135,10 @@
 
     </section>
 
+    <div id="loadDynamicProductDetailsHTML">
+      @include("frontendViews.partials.product_details_modal")
+    </div>
+    
     @include("frontendViews.partials.login_register_modal")
     @include("frontendViews.partials.order_modal")
     @include("frontendViews.partials.reservation_modal")
