@@ -17,7 +17,7 @@ $(document).ready(function(){
 	function updateQtyToServer(cartID, type){
 		$.ajax({
 			url: "/cart/update-qty",
-			data: {cart_id:cartID, type:type},
+			data: {cart_id:cartID, type:type, render_page:render_page},
 			method: 'GET',
 			dataType: 'HTML',
 			cache: false,

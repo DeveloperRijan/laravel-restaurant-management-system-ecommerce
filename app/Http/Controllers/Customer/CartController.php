@@ -113,8 +113,8 @@ class CartController extends Controller
         $updated = Cart::where('id', $request->cart_id)->update([
             'qty'=>$newQTY_Val
         ]);
+      
         
-
         //get cart deatils
         $obj = new CheckoutSummary();
         $data = $obj->getCheckoutSummary();

@@ -295,3 +295,38 @@ function getCartTotalItems(){
 	    }
 	});
 }
+
+
+
+//control qty in modal
+$("#loadDynamicProductDetailsHTML").on("click", "button.increase", function(){
+	let sellingPrice = $("#loadDynamicProductDetailsHTML input[name='selling_price']").val()
+	let qty = $("#loadDynamicProductDetailsHTML input[name='qty']").val()
+	qty = parseInt(qty) + 1
+
+	$("#loadDynamicProductDetailsHTML .qty-control input[name='qty']").val(qty)
+	$("#loadDynamicProductDetailsHTML .qty-val").html(qty)
+
+	sellingPrice = (parseFloat(sellingPrice).toFixed(2)) * qty
+	sellingPrice = (parseFloat(sellingPrice).toFixed(2))
+	$("#loadDynamicProductDetailsHTML .inner-selling-price").html(sellingPrice)
+})
+
+$("#loadDynamicProductDetailsHTML").on("click", "button.decrease", function(){
+	let sellingPrice = $("#loadDynamicProductDetailsHTML input[name='selling_price']").val()
+	let qty = $("#loadDynamicProductDetailsHTML input[name='qty']").val()
+	qty = parseInt(qty)
+
+	if (qty === 1) {
+		return;
+	}
+
+	qty = qty - 1
+
+	$("#loadDynamicProductDetailsHTML .qty-control input[name='qty']").val(qty)
+	$("#loadDynamicProductDetailsHTML .qty-val").html(qty)
+
+	sellingPrice = (parseFloat(sellingPrice).toFixed(2)) * qty
+	sellingPrice = (parseFloat(sellingPrice).toFixed(2))
+	$("#loadDynamicProductDetailsHTML .inner-selling-price").html(sellingPrice)
+})

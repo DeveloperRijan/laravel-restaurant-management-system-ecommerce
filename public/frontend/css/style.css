@@ -1205,6 +1205,26 @@ inner_easy_order {
     margin-bottom: 20px
 }
 
+#loadDynamicProductDetailsHTML .txt-wrapper .order-btn-wrapper .qty-control{
+    width: 20%
+}
+#loadDynamicProductDetailsHTML .txt-wrapper .order-btn-wrapper div.order-link{
+    width: 80%
+}
+
+#loadDynamicProductDetailsHTML .txt-wrapper .order-btn-wrapper .qty-control button.increase,
+#loadDynamicProductDetailsHTML .txt-wrapper .order-btn-wrapper .qty-control button.decrease
+{
+    border: none;
+    outline: none;
+    background: #ddd;
+    padding: 10px;
+    border-radius: 50%;
+}
+#loadDynamicProductDetailsHTML .txt-wrapper .order-btn-wrapper .qty-control div.qty-val{
+    padding: 10px
+}
+
 
 
 /*responsive elements*/
