@@ -87,5 +87,56 @@ class CustomerChatController extends Controller
  		return response()->json([
             "msg"=>"Internal server error | please try again later"
         ], 422);
- 	} 
+ 	}
+
+
+
+ 	public function getMessages(Request $request){
+ 		///validate ticket ID
+ 		$authUserID = Auth::user()->id;
+
+        $ticket = SupportTicket::where(["user_id"=>$authUserID, "ticket_id"=>$request->ticket_id])->first();
+        if (!$ticket) {
+        	return response()->json([
+                "msg"=>"Invalid Support Ticket ID"
+            ], 422);
+        }
+
+ 		$messages = Chat::where([
+ 				"sender_id"=>$authUserID,
+ 				"ticket_id"=>$request->ticket_id
+ 			])
+ 			->orderBy("created_at", "ASC")
+ 			->get();
+
+ 		return view("components.chat.partials.user_messages", compact('messages'))->render();
+ 	}
+
+
+
+    public function ticket_actions($id, $type){
+        $data = SupportTicket::where('id', decrypt($id))
+                ->where("user_id", Auth::user()->id)
+                ->first();
+
+        if (!$data) {
+            return abort(404);
+        }
+
+        if (decrypt($type) === "Close") {
+            $data->update([
+                "status"=>"Closed",
+                "closed_by"=>Auth::user()->id
+            ]);
+            return redirect()->back()->with("success", "Ticket Closed");
+        }
+
+        if (decrypt($type) === "SoftDelete") {
+            $data->delete();
+            return redirect()->back()->with("success", "Ticket Deleted");
+        }
+
+        return abort(403);
+        
+    }
 }

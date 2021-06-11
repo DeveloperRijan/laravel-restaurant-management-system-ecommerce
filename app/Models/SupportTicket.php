@@ -13,6 +13,7 @@ class SupportTicket extends Model
     	"user_id",
     	"ticket_id",
     	"subject",
-    	"status"
+    	"status",
+    	"closed_by"
     ];
 }

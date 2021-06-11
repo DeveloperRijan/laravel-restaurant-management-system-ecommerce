@@ -184,6 +184,8 @@ Route::group(["prefix"=>"customer", "as"=>"customer.", "middleware"=>["auth", "c
     Route::post("open-support-ticket", [CustomerChatController::class, "open_ticket"])->name("support.openTicket");
     Route::get("support", [CustomerChatController::class, "chat_page"])->name("support.page");
     Route::post("sendMsg", [CustomerChatController::class, "sendMsg"])->name("sendMsg.post");
+    Route::get("getMessages", [CustomerChatController::class, "getMessages"])->name("getMessages.get");
+    Route::get("support_ticket_actions/{supportTicketID}/{actionType}", [CustomerChatController::class, "ticket_actions"])->name("supportTicketsActions");
 });
 
 

@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	//get messages
+	liveGetMessages()
+
 	//if click on send
 	$("#my__chat__box span.send_btn").on("click", function(){
 		sendMsg();
@@ -42,7 +45,7 @@ function sendMsg(){
 				isSending = false
 				$("#my__chat__box textarea[name='composer']").val('')
 				$("#my__chat__box #my-messages-box").html(response)
-				
+
 				$('#my__chat__box .msg_card_body').stop ().animate ({
 			   	  scrollTop: $('#my__chat__box .msg_card_body')[0].scrollHeight
 			   	});
@@ -73,5 +76,48 @@ function sendMsg(){
             complete:function(){
             	isSending = false
             }
-        });
+    });
+}
+
+
+
+//update messages
+function liveGetMessages(){
+	let ticket_id = $("#my__chat__box input[name='ticket_id']").val()
+	$.ajax({
+		url: "/customer/getMessages",
+		data: {ticket_id:ticket_id},
+		method: "GET",
+		dataType: 'HTML',
+		cache: false,
+		success: function(response){
+			$("#my__chat__box #my-messages-box").html(response)
+
+			$('#my__chat__box .msg_card_body').stop ().animate ({
+		   	  scrollTop: $('#my__chat__box .msg_card_body')[0].scrollHeight
+		   	});
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+
+			let string_to_obj = JSON.parse(jqXHR.responseText)
+			if (jqXHR.status === 422) {
+              	
+              	Swal.fire({
+				  icon: 'info',
+				  title: 'SORRY',
+				  text: string_to_obj.msg,
+				  footer: ''
+				})
+
+            }else{
+              	Swal.fire({
+				  icon: 'info',
+				  title: 'SORRY',
+				  text: "Something went wrong, please refresh the page and try again...",
+				  footer: ''
+				})
+            }
+
+        }
+    });
 }

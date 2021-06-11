@@ -12,8 +12,7 @@
 			<tr>
 				<th>SN</th>
 				<th>Ticket ID</th>
-				<th title="Total Converstaions">Conversations</th>
-				<th>Start Date</th>
+				<th title="Ticket Open Date">Start Date</th>
 				<th>Status</th>
 				<th>Action</th>
 			</tr>
@@ -22,26 +21,19 @@
 
 			@foreach($tickets as $key=>$row)
 			<tr>
-				<td>{{$key+1}}</td>
-				<td>#{{$row->ticket_id}}</td>
+				<td><small>{{$key+1}}</small></td>
+				<td>#<small>{{$row->ticket_id}}</small></td>
 				<td>
-						
-				</td>
-				<td>
-					<span class="badge bg-secondary">{{$row->status}}</span>
+					<small>{{date(env('CHAT_DATE_FORMAT'), strtotime($row->created_at))}}</small>
 				</td>
 				<td>
 					<span class="badge bg-secondary">{{$row->status}}</span>
 				</td>
 				<td>
 					<a class="btn btn-primary btn-sm" href="{{ route('customer.account.get')}}?data=support&ticket_id={{$row->ticket_id}}"><i class="fas fa-eye"></i></a>
-					
-					@if($row->status === "Open")
-						<a title="Open" class="btn btn-warning btn-sm" href="{{ route('customer.order.actions', [encrypt($row->ticket_id), encrypt('Close')]) }}"><i class="fas fa-times"></i></a>
-					@endif
 
 					@if($row->status === "Closed")
-						<a title="Closed" class="btn btn-warning btn-sm" href="{{ route('customer.order.actions', [encrypt($row->ticket_id), encrypt('SoftDelete')]) }}"><i class="fas fa-times"></i></a>
+						<a onclick="return confirm('Are you sure to DELETE?')" title="Closed" class="btn btn-danger btn-sm" href="{{ route('customer.supportTicketsActions', [encrypt($row->id), encrypt('SoftDelete')]) }}"><i class="fas fa-times"></i></a>
 					@endif
 				</td>
 			</tr>
@@ -68,6 +60,7 @@
         		<label>* Subject</label>
         		<input type="text" name="subject" placeholder="Subject (150 characters max)" class="form-control" required="1" maxlength="150">
         	</div>
+        	<br>
         	<div class="form-group">
         		<button onclick="return confirm('Are you sure?')" class="btn btn-success btn-sm" type="submit">Open Ticket & Start Chat</button>
         	</div>

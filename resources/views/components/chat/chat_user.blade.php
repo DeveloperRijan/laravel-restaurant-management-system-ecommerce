@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="{{$publicAssetsPathStart}}plugins/chat/jquery.mCustomScrollbar.min.css">
 <link rel="stylesheet" type="text/css" href="{{$publicAssetsPathStart}}plugins/chat/chat.css">
 @endpush
+
 <div id="my__chat__box" class="container-fluid h-100">
    <div class="row justify-content-center h-100">
       <div class="col-md-4 col-xl-3 chat">
@@ -42,33 +43,31 @@
                      <span class="online_icon d-none"></span>
                   </div>
                   <div class="user_info">
-                     <span>SupporTeam</span>
+                     <span>Support Team</span>
                   </div>
-               </div>
-               <span id="action_menu_btn"><i class="fa fa-ellipsis-v"></i></span>
-               <div class="action_menu">
-                  <ul>
-                     <li><i class="fa fa-check"></i> Close Ticket</li>
-                  </ul>
                </div>
             </div>
             <div class="card-body msg_card_body" id="my-messages-box">
-               
+
                @include("components.chat.partials.user_messages")
                
             </div>
+
+            @if($supportTicket->status === "Open")
             <div class="card-footer">
                <div class="input-group">
                   <div class="input-group-append d-none">
                      <span class="input-group-text attach_btn"><i class="fa fa-paperclip"></i></span>
                   </div>
                   <textarea name="composer" class="form-control type_msg" placeholder="Type your message..."></textarea>
-                  <input type="hidden" name="ticket_id" value="{{$supportTicket->ticket_id}}">
                   <div class="input-group-append">
                      <span class="input-group-text send_btn"><i class="fa fa-location-arrow"></i></span>
                   </div>
                </div>
             </div>
+            @endif
+            <input type="hidden" name="ticket_id" value="{{$supportTicket->ticket_id}}">
+
          </div>
       </div>
    </div>
@@ -92,5 +91,15 @@
    	});
    })
 </script>
-<script type="text/javascript" src="{{$publicAssetsPathStart}}plugins/chat/user_chat_scripts.js"></script>
+
+   <script type="text/javascript" src="{{$publicAssetsPathStart}}plugins/chat/user_chat_scripts.js"></script>
+   
+   @if($supportTicket->status === "Open")
+      <script type="text/javascript">
+         //call every 5 seconds if ticket is open
+         setInterval(function() {
+          liveGetMessages()
+        }, 5000);
+      </script>
+   @endif
 @endpush
