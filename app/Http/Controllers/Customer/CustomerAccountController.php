@@ -21,6 +21,19 @@ class CustomerAccountController extends Controller
         }
 
         if ($request->data === "support") {
+            if (is_numeric($request->ticket_id)) {
+                $supportTicket = SupportTicket::where(["user_id"=>Auth::user()->id, 'ticket_id'=>$request->ticket_id])->first();
+                $messages = NULL;
+                if ($supportTicket) {
+                    $messages = Chat::where([
+                        "sender_id"=>Auth::user()->id,
+                        "ticket_id"=>$request->ticket_id
+                    ])
+                    ->orderBy("created_at", "ASC")
+                    ->get();
+                }
+                return view("frontendViews.user.account.account", compact('supportTicket', 'messages'));    
+            }
             $tickets = SupportTicket::where('user_id', Auth::user()->id)->orderBy("created_at", "DESC")->get();
             return view("frontendViews.user.account.account", compact('tickets'));
         }

@@ -50,6 +50,7 @@ return [
 		]
 	],
 	"PHONE_NUM_LENGTH"=>10,
-	"DEFAULT_COUNTRY_CODE"=>44
+	"DEFAULT_COUNTRY_CODE"=>44,
+	"MAX_MSG_TXT"=>2000//characters
 ];
 ?>

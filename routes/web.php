@@ -183,6 +183,7 @@ Route::group(["prefix"=>"customer", "as"=>"customer.", "middleware"=>["auth", "c
     #live support
     Route::post("open-support-ticket", [CustomerChatController::class, "open_ticket"])->name("support.openTicket");
     Route::get("support", [CustomerChatController::class, "chat_page"])->name("support.page");
+    Route::post("sendMsg", [CustomerChatController::class, "sendMsg"])->name("sendMsg.post");
 });
 
 

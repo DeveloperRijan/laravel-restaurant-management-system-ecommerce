@@ -43,10 +43,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{$publicAssetsPathStart}}uploads/app/app_logo.png">
     <title>@if($frontendUIData) {{$frontendUIData->app_title}} @else {{env("APP_NAME")}} @endif</title>
 
-    @if(\Request::has('data') && \Request::get('data') === "support")
-    <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/bootstrap4.6.0.min.css">
-    @endif
-
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/bootstrap.min.css" />
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/all.min.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
@@ -97,11 +93,6 @@
         height: 100%;
         background: {{$app_section_bg_color}};
         z-index: -1;
-      }
-
-      /*make the chatbot left side bar with auto for frontend users*/
-      #my__chat__box .col-xl-3{
-        display: none;
       }
    </style>
 </head>

@@ -40,7 +40,7 @@
 						<a title="Open" class="btn btn-warning btn-sm" href="{{ route('customer.order.actions', [encrypt($row->ticket_id), encrypt('Close')]) }}"><i class="fas fa-times"></i></a>
 					@endif
 
-					@if($order->status === "Closed")
+					@if($row->status === "Closed")
 						<a title="Closed" class="btn btn-warning btn-sm" href="{{ route('customer.order.actions', [encrypt($row->ticket_id), encrypt('SoftDelete')]) }}"><i class="fas fa-times"></i></a>
 					@endif
 				</td>
