@@ -27,19 +27,19 @@ $(document).ready(function(){
 
 
 	//if click on order now then
-	$("body").on("click", ".order_now_btn", function(){
-		let item_id = $(this).attr('item_id')
-		let item_pic = $(this).attr('item_pic')
-		let item_title = $(this).attr('item_title')
-		let item_price = $(this).attr('item_price')
+	// $("body").on("click", ".order_now_btn", function(){
+	// 	let item_id = $(this).attr('item_id')
+	// 	let item_pic = $(this).attr('item_pic')
+	// 	let item_title = $(this).attr('item_title')
+	// 	let item_price = $(this).attr('item_price')
 
-		$("#orderNowModal form input[name='itemID']").val(item_id);
-		$("#orderNowModal img.setItemImage").attr('src', item_pic);
-		$("#orderNowModal form td.setTitleVal").html(item_title);
-		$("#orderNowModal form td.setPriceVal span").html(item_price);
+	// 	$("#orderNowModal form input[name='itemID']").val(item_id);
+	// 	$("#orderNowModal img.setItemImage").attr('src', item_pic);
+	// 	$("#orderNowModal form td.setTitleVal").html(item_title);
+	// 	$("#orderNowModal form td.setPriceVal span").html(item_price);
 
-		$("#orderNowModal").modal("show")
-	});
+	// 	$("#orderNowModal").modal("show")
+	// });
 
 
 
@@ -330,3 +330,4 @@ $("#loadDynamicProductDetailsHTML").on("click", "button.decrease", function(){
 	sellingPrice = (parseFloat(sellingPrice).toFixed(2))
 	$("#loadDynamicProductDetailsHTML .inner-selling-price").html(sellingPrice)
 })
+

@@ -190,7 +190,8 @@
                    </div>
                 </div>
              </div>
-             
+
+             <input type="hidden" name="product_id" value="{{encrypt($productDetailsData->id)}}">
           </div> <!-- .row end here -->
 
         </div>

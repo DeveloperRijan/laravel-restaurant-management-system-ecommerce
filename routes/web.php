@@ -26,10 +26,12 @@ use App\Http\Controllers\Customer\CartController;
 use App\Http\Controllers\Customer\FeedbackController;
 use App\Http\Controllers\Customer\OrderController;
 use App\Http\Controllers\Customer\CustomerProfileController;
+use App\Http\Controllers\Customer\CustomerChatController;
 
 
 //kithen staff
 use App\Http\Controllers\KS\KsDashboardController;
+use App\Http\Controllers\KS\KSchatController;
 
 
 //admin
@@ -53,7 +55,7 @@ use App\Http\Controllers\Admin\BatchCouponController;
 use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\NotificationSettingController;
-
+use App\Http\Controllers\Admin\AdminChatController;
 
 
 
@@ -82,7 +84,7 @@ Route::post("/search_post_code", [SearchPostCodeController::class, "search_post_
 
 //cart items
 Route::get("cart-items", [CartController::class, "get_cart_items"])->name("get.cart.items");
-Route::get("order-now/{productID}", [CartController::class, "order_now"])->name("orderNow.item");
+Route::get("order-now", [CartController::class, "order_now"])->name("orderNow.item");
 
 #Feedback - like a product
 Route::post("feedback", [FeedbackController::class, "feedback_post"]);
@@ -177,6 +179,10 @@ Route::group(["prefix"=>"customer", "as"=>"customer.", "middleware"=>["auth", "c
     #Orders
     Route::post("order", [OrderController::class, "post_order"])->name("order.post");
     Route::get("order_actions/{orderID}/{type}", [OrderController::class, "order_actions"])->name("order.actions");
+
+    #live support
+    Route::post("open-support-ticket", [CustomerChatController::class, "open_ticket"])->name("support.openTicket");
+    Route::get("support", [CustomerChatController::class, "chat_page"])->name("support.page");
 });
 
 
@@ -205,6 +211,9 @@ Route::group(["prefix"=>"kitchen-staff", "as"=>"ks.", "middleware"=>["auth", "ks
     #Products
     Route::resource("products", AdminProductController::class);
     Route::get("product_actions/{productID}/{actionType}", [AdminProductController::class, "actions"])->name("product.action");
+
+    #live support
+    Route::get("support", [KSchatController::class, "chat_page"])->name("support.page");
 });
 
 

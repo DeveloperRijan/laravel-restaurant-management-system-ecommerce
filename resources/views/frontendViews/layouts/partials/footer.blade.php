@@ -220,6 +220,39 @@
         fade: 1000
       });
     </script>
+
+
+
+    @if(Auth::check() && Auth::user()->type === "Customer")
+    <script type="text/javascript">
+      //if clicked order btn then
+      $("#loadDynamicProductDetailsHTML").on("click", "a.order-now-link", function(e){
+        e.preventDefault()
+        let qty = $("#loadDynamicProductDetailsHTML input[name='qty']").val()
+        let productID = $("#loadDynamicProductDetailsHTML input[name='product_id']").val()
+        window.location.href = "{{route('orderNow.item')}}?product_id="+productID+"&qty="+qty
+      })
+    </script>
+    @elseif(Auth::check() && Auth::user()->type === "Staff")
+    <script type="text/javascript">
+      //if clicked order btn then
+      $("#loadDynamicProductDetailsHTML").on("click", "a.order-now-link", function(e){
+        e.preventDefault()
+        let qty = $("#loadDynamicProductDetailsHTML input[name='qty']").val()
+        let productID = $("#loadDynamicProductDetailsHTML input[name='product_id']").val()
+        window.location.href = "{{route('orderNow.item')}}?product_id="+productID+"&qty="+qty
+      })
+    </script>
+    @else
+    <script type="text/javascript">
+      //if clicked order btn then
+      $("#loadDynamicProductDetailsHTML").on("click", "a.order-now-link", function(e){
+        e.preventDefault()
+        alert("SORRY - Please Login to continue")
+        
+      })
+    </script>
+    @endif
 </body>
 
 </html>

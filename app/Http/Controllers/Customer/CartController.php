@@ -126,38 +126,50 @@ class CartController extends Controller
 
 
     //order now link
-    public function order_now($productID){
+    public function order_now(Request $request){
         if (!Auth::check()) {
             return abort(403);
         }
 
+        $redirectTo = "checkout.init";
+        $productType = "Main";
+        if (Auth::user()->type === "Staff") {
+            $redirectTo = "staff.order.page";
+            $productType = "Staff";
+        }
+
+        if ($request->product_id == '') {
+            return redirect()->route($redirectTo)->with("error", "SORRY - The product id is missing to make order... !");
+        }
+
         //check product
-        $productData = Product::where(['id'=>decrypt($productID)])->first();
+        $productData = Product::where(['id'=>decrypt($request->product_id)])->first();
         if (!$productData) {
             return abort(404);
         }
 
         if ($productData->status !== "Active") {
-            return redirect()->route("checkout.init")->with("error", "SORRY - The product you have selected is unavailable now !");
+            return redirect()->route($redirectTo)->with("error", "SORRY - The product you have selected is unavailable now !");
         }
 
-        if ($productData->type !== "Main") {
-            return redirect()->route("checkout.init")->with("error", "SORRY - The product might be not for you !");
+        if ($productData->type !== $productType) {
+            return redirect()->route($redirectTo)->with("error", "SORRY - The product might be not for you !");
         }
 
         if ($productData->stock_status !== "Available") {
-            return redirect()->route("checkout.init")->with("error", "SORRY - The item you have selected is Sold Out !");
+            return redirect()->route($redirectTo)->with("error", "SORRY - The item you have selected is Sold Out !");
         }
 
-        if (!Cart::where(['user_id'=>Auth::user()->id, "product_id"=>decrypt($productID)])->exists()) {
+        if (!Cart::where(['user_id'=>Auth::user()->id, "product_id"=>$productData->id])->exists()) {
             //add item to cart
             Cart::insert([
                 "user_id"=>Auth::user()->id,
                 "product_id"=>$productData->id,
+                "qty"=>(is_numeric($request->qty) ? $request->qty : 1),
                 "created_at"=>Carbon::now()
             ]);
         }
 
-        return redirect()->route("checkout.init");
+        return redirect()->route($redirectTo);
     }
 }

@@ -35,9 +35,7 @@
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <a href="{{route('customer.account.get')}}?data=profile" class="nav-link @if(\Request::get('data') === 'profile' || \Request::get('data') === 'password') active @endif ">Profile</a>
                   <a href="{{route('customer.account.get')}}?data=orders" class="nav-link @if(\Request::get('data') === 'orders') active @endif ">Orders</a>
-                  {{--
-                  <a href="{{route('customer.account.get')}}?data=reservations" class="nav-link @if(\Request::get('data') === 'reservations') active @endif ">Reservations</a>
-                  --}}
+                  <a href="{{route('customer.account.get')}}?data=support" class="nav-link @if(\Request::get('data') === 'support') active @endif ">Support</a>
                   
                   <a href="" class="nav-link" aria-selected="false"
                      onclick="event.preventDefault();
@@ -71,6 +69,13 @@
                   @if(\Request::get('data') === "profile")
                   <div class="tab-pane fade show active">
                      @include("frontendViews.user.account.partials.profile")
+                  </div>
+                  @endif
+
+
+                  @if(\Request::get('data') === "support")
+                  <div class="tab-pane fade show active">
+                     @include("frontendViews.user.account.chat.chat")
                   </div>
                   @endif
 

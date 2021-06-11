@@ -52,6 +52,13 @@
      </a>
   </li>
 
+  <li class="nav-item">
+     <a class="nav-link " href="{{route('ks.support.page')}}">
+        <i class="nav-icon fa fa-comment"></i>
+        <p>Support <small>(0)</small></p>
+     </a>
+  </li>
+
 
 <br><br>
 

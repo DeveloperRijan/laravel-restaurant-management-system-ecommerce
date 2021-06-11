@@ -9,6 +9,8 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\CustomerAddress;
 use Carbon\Carbon;
+use App\Models\Chat;
+use App\Models\SupportTicket;
 use Auth;
 
 class CustomerAccountController extends Controller
@@ -17,6 +19,12 @@ class CustomerAccountController extends Controller
         if ($request->data === "orders") {
             return $this->getOrders($request);
         }
+
+        if ($request->data === "support") {
+            $tickets = SupportTicket::where('user_id', Auth::user()->id)->orderBy("created_at", "DESC")->get();
+            return view("frontendViews.user.account.account", compact('tickets'));
+        }
+
     	return view("frontendViews.user.account.account");
     }
 

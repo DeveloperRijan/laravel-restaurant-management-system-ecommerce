@@ -43,6 +43,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{$publicAssetsPathStart}}uploads/app/app_logo.png">
     <title>@if($frontendUIData) {{$frontendUIData->app_title}} @else {{env("APP_NAME")}} @endif</title>
 
+    @if(\Request::has('data') && \Request::get('data') === "support")
+    <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/bootstrap4.6.0.min.css">
+    @endif
+
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/bootstrap.min.css" />
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/all.min.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
@@ -66,15 +70,20 @@
       </style>
    @endif
 
+
+   @if(!\Request::is("*customer*"))
    <style type="text/css">
-      #header {
-         /*background: linear-gradient(#00000038,#00000063), url('{{$home_top_banner}}');*/
+     #header {
          background-size: cover;
         background-repeat: no-repeat;
         width: 100%;
         height: 80%;
         background-position: center;
       }
+   </style>
+   @endif
+
+   <style type="text/css">
       .app-section::before,
       .app-section::after{
         content: "";
@@ -88,6 +97,11 @@
         height: 100%;
         background: {{$app_section_bg_color}};
         z-index: -1;
+      }
+
+      /*make the chatbot left side bar with auto for frontend users*/
+      #my__chat__box .col-xl-3{
+        display: none;
       }
    </style>
 </head>
@@ -179,6 +193,7 @@
       </div>
       </div>
 
+    @if(!\Request::is('*customer*'))
       <div class="container">
         <div class="hero_area container">
             <h1 style="color: {{$home_banner_title_color}}">{{$home_banner_title}}</h1>
@@ -200,6 +215,8 @@
             </div>
         </div>
       </div>
+    @endif
+
     </header>
     <!-- Header Section ends -->
 
