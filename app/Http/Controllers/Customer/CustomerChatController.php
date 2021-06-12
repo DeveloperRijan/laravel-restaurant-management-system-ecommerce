@@ -17,6 +17,14 @@ class CustomerChatController extends Controller
  			"subject"=>"required|string|max:150"
  		]);
 
+        //check their has any tickets is opened
+        $currentOpenTicket = SupportTicket::where("user_id", Auth::user()->id)
+                                    ->where('status', "Open")
+                                    ->first();
+        if ($currentOpenTicket) {
+            return redirect()->back()->with("error", "You have already an open ticket, please close current open ticket to start new. Current Open Ticket ID : ".$currentOpenTicket->ticket_id);
+        }
+
  		$ticket = new SupportTicket([
  			"user_id"=>Auth::user()->id,
  			"subject"=>$request->subject,

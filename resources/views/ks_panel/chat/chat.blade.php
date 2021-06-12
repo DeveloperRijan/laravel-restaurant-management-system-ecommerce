@@ -48,7 +48,7 @@
     </div>
     <div class="card-body">
       
-      @include("components.chat.chat")
+      @include("components.chat.admin_chat")
 
       <div class="clearfix"></div>
     </div>

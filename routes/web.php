@@ -217,6 +217,9 @@ Route::group(["prefix"=>"kitchen-staff", "as"=>"ks.", "middleware"=>["auth", "ks
 
     #live support
     Route::get("support", [KSchatController::class, "chat_page"])->name("support.page");
+    Route::post("sendMsg", [KSchatController::class, "sendMsg"])->name("sendMsg.post");
+    Route::get("getMessages", [KSchatController::class, "getMessages"])->name("getMessages.get");
+    Route::get("support_ticket_actions/{supportTicketID}/{actionType}", [KSchatController::class, "ticket_actions"])->name("supportTicketsActions");
 });
 
 

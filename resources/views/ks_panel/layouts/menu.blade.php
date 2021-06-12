@@ -55,7 +55,11 @@
   <li class="nav-item">
      <a class="nav-link " href="{{route('ks.support.page')}}">
         <i class="nav-icon fa fa-comment"></i>
-        <p>Support <small>(0)</small></p>
+        <?php
+          //open tickets
+          $openTickets = \App\Models\SupportTicket::where('status', "Open")->count();
+        ?>
+        <p>Support <small>({{$openTickets}})</small></p>
      </a>
   </li>
 
