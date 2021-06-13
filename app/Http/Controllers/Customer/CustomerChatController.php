@@ -83,7 +83,7 @@ class CustomerChatController extends Controller
  		if ($message->save()) {
  			//get messages
  			$messages = Chat::where([
- 				"sender_id"=>Auth::user()->id,
+ 				//"sender_id"=>Auth::user()->id,
  				"ticket_id"=>$request->ticket_id
  			])
  			->orderBy("created_at", "ASC")
@@ -111,7 +111,7 @@ class CustomerChatController extends Controller
         }
 
  		$messages = Chat::where([
- 				"sender_id"=>$authUserID,
+ 				//"sender_id"=>$authUserID,
  				"ticket_id"=>$request->ticket_id
  			])
  			->orderBy("created_at", "ASC")

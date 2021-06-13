@@ -3,11 +3,21 @@
 namespace App\Http\Controllers\KS;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Models\SupportTicket;
+use App\Models\User;
+use App\Models\Chat;
+use Carbon\Carbon;
+use Auth;
 
 class KSchatController extends Controller
 {
     public function chat_page(){
+    	//if has any session id then forget initally
+    	\Session::forget('activeTicketID');
+
+    	//return the view
     	return view("ks_panel.chat.chat");
     }
 
@@ -34,12 +44,12 @@ class KSchatController extends Controller
 
         if ($ticket->status !== "Open") {
         	return response()->json([
-                "msg"=>"Invalid Support Ticket ID | The ticket already ".$ticket->status
+                "msg"=>"The ticket already ".$ticket->status
             ], 422);
         }
 
  		$message = new Chat([
- 			"sender_id"=>$ticket->user_id,
+ 			//"sender_id"=>$ticket->user_id,
  			"ticket_id"=>$request->ticket_id,
  			"msg"=>$request->msg,
  			"responder_id"=>Auth::user()->id,
@@ -50,13 +60,13 @@ class KSchatController extends Controller
  		if ($message->save()) {
  			//get messages
  			$messages = Chat::where([
- 				"sender_id"=>Auth::user()->id,
+ 				//"sender_id"=>$ticket->user_id,
  				"ticket_id"=>$request->ticket_id
  			])
  			->orderBy("created_at", "ASC")
  			->get();
 
- 			return view("components.chat.partials.user_messages", compact('messages'))->render();
+ 			return view("components.chat.partials.admin_messages", compact('messages'))->render();
  		}
 
  		return response()->json([
@@ -68,8 +78,6 @@ class KSchatController extends Controller
 
  	public function getMessages(Request $request){
  		///validate ticket ID
- 		$authUserID = Auth::user()->id;
-
         $ticket = SupportTicket::where(["ticket_id"=>$request->ticket_id])->first();
         if (!$ticket) {
         	return response()->json([
@@ -78,13 +86,15 @@ class KSchatController extends Controller
         }
 
  		$messages = Chat::where([
- 				//"sender_id"=>$authUserID,
- 				"ticket_id"=>$request->ticket_id
- 			])
- 			->orderBy("created_at", "ASC")
- 			->get();
-
- 		return view("components.chat.partials.user_messages", compact('messages'))->render();
+ 			"ticket_id"=>$request->ticket_id
+ 		])
+ 		->orderBy("created_at", "ASC")
+ 		->get();
+ 		if (\Session::get('activeTicketID') != $request->ticket_id) {
+ 			\Session::forget('activeTicketID');
+ 			\Session::put('activeTicketID', $request->ticket_id);
+ 		}
+ 		return view("components.chat.partials.admin_messages", compact('messages'))->render();
  	}
 
 
@@ -113,5 +123,13 @@ class KSchatController extends Controller
 
         return abort(403);
         
+    }
+
+
+    public function getChatContacts(){
+    	$chatContacts = SupportTicket::where("status", "Open")
+    						->with(["get_chats", "get_user"])->orderBy("created_at", "DESC")
+    						->get();
+    	return view("components.chat.partials.chat_contacts", compact('chatContacts'))->render();
     }
 }

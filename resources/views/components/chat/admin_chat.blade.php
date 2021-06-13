@@ -7,7 +7,7 @@
    <div class="row justify-content-center h-100">
       <div class="col-md-4 col-xl-3 chat">
          <div class="card mb-sm-3 mb-md-0 contacts_card">
-            <div class="card-header">
+            <div class="card-header d-none">
                <div class="input-group">
                   <input type="text" placeholder="Search..." name="" class="form-control search">
                   <div class="input-group-prepend">
@@ -16,9 +16,9 @@
                </div>
             </div>
             <div class="card-body contacts_body">
-               <ui class="contacts">
+               <ul class="contacts" id="chatContactList">
                   @include("components.chat.partials.chat_contacts")
-               </ui>
+               </ul>
             </div>
             <div class="card-footer"></div>
          </div>
@@ -28,17 +28,21 @@
             <div class="card-header msg_head">
                <div class="d-flex bd-highlight">
                   <div class="user_info">
-                     <span><small>Support to <b>Khalid</b></small></span>
+                     <span><small>Support to <small id="setActiveChatUserName"></small></small></span>
+                     <span style="display: block;">
+                        <small id="setActiveChatSubject" style="font-size: 12px"></small>
+                     </span>
                   </div>
                </div>
                <span id="action_menu_btn"><i class="fa fa-ellipsis-v"></i></span>
                <div class="action_menu">
                   <ul>
-                     <li><i class="fa fa-user"></i> Profile</li>
-                     <li><i class="fa fa-times"></i> Close Ticket</li>
+                     <li><i class="fa fa-user"></i> <a href="{{route('')}}">Profile</a></li>
+                     <li><i class="fa fa-times"></i> <a href="">Close Ticket</a></li>
                   </ul>
                </div>
             </div>
+
             <div class="card-body msg_card_body" id="my-messages-box">
 
                @include("components.chat.partials.admin_messages")
@@ -56,7 +60,6 @@
                   </div>
                </div>
             </div>
-            <input type="hidden" name="ticket_id" value="">
 
          </div>
       </div>
@@ -85,9 +88,11 @@
    <script type="text/javascript" src="{{$publicAssetsPathStart}}plugins/chat/ks_chat_scripts.js"></script>
 
    <script type="text/javascript">
-      //call every 5 seconds if ticket is open
-      //setInterval(function() {
-       //liveGetMessages()
-     //}, 5000);
+      //call every 1.5 mins for contact list updates
+      setInterval(function() {
+       liveGetChatContacts()
+     }, 90000);
    </script>
+
+   <script type="text/javascript" src="{{$publicAssetsPathStart}}plugins/sw_alert/sweetalert2@10.js"></script>
 @endpush

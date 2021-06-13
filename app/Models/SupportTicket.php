@@ -16,4 +16,12 @@ class SupportTicket extends Model
     	"status",
     	"closed_by"
     ];
+
+    public function get_chats(){
+    	return $this->hasMany("App\Models\Chat", "ticket_id", "ticket_id");
+    }
+
+    public function get_user(){
+    	return $this->belongsTo("App\Models\User", "user_id")->withTrashed();
+    }
 }

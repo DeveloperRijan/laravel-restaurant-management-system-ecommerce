@@ -5,7 +5,7 @@
    ?>
 
    @foreach($messages as $key=>$message)
-      @if($authUser->id == $message->sender_id)
+      @if($authUser->id == $message->responder_id)
          <div class="d-flex justify-content-end mb-4">
             <div>
                <div class="msg_cotainer_send">
@@ -20,10 +20,12 @@
       @else
          <div class="d-flex justify-content-start mb-4">
             <div class="img_cont_msg">
-               <small>Support</small>
+               <small>User</small>
             </div>
-            <div class="msg_cotainer">
-               {!! nl2br(e($message->msg)) !!}
+            <div>
+               <div class="msg_cotainer">
+                  {!! nl2br(e($message->msg)) !!}
+               </div>
                <span class="msg_time">8:40 AM, Today</span>
             </div>
          </div>

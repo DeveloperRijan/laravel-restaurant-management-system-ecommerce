@@ -56,6 +56,7 @@ use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\NotificationSettingController;
 use App\Http\Controllers\Admin\AdminChatController;
+use App\Http\Controllers\Admin\CompanyController;
 
 
 
@@ -219,6 +220,7 @@ Route::group(["prefix"=>"kitchen-staff", "as"=>"ks.", "middleware"=>["auth", "ks
     Route::get("support", [KSchatController::class, "chat_page"])->name("support.page");
     Route::post("sendMsg", [KSchatController::class, "sendMsg"])->name("sendMsg.post");
     Route::get("getMessages", [KSchatController::class, "getMessages"])->name("getMessages.get");
+    Route::get("getChatContacts", [KSchatController::class, "getChatContacts"])->name("getChatContacts.get");
     Route::get("support_ticket_actions/{supportTicketID}/{actionType}", [KSchatController::class, "ticket_actions"])->name("supportTicketsActions");
 });
 
@@ -320,4 +322,6 @@ Route::group(["prefix"=>"admin", "as"=>"admin.", "middleware"=>["auth", "adminMW
     Route::resource("notification-settings", NotificationSettingController::class);
     Route::get("designation/{designationID}/{actionType}", [NotificationSettingController::class, "actions"])->name("designation.actions");
     
+    #Company Management
+    Route::resource("companies", CompanyController::class);
 });

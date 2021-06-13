@@ -75,11 +75,24 @@ class UserManagementController extends Controller
      */
     public function show($id)
     {
-        $user = User::withTrashed()->where("id", '=', decrypt($id))->where('type', '!=', "Admin")->with('get_designation')->first();
+        if (Auth::user()->type === "Admin") {
+            $user = User::withTrashed()->where("id", '=', decrypt($id))->where('type', '!=', "Admin")->with('get_designation')->first();
+            if (!$user) {
+                return abort(404, "User Not Found");
+            }
+            return view("backendViews.users.show", compact('user'));
+        }
+
+        $user = User::withTrashed()
+                ->where("id", '=', decrypt($id))
+                ->where('type', '!=', "Admin")
+                ->where('type', '!=', "Kitchen Staff")
+                ->with('get_designation')->first();
         if (!$user) {
             return abort(404, "User Not Found");
         }
-        return view("backendViews.users.show", compact('user'));
+        return view("ks_panel.users.show", compact('user'));
+
     }
 
     /**

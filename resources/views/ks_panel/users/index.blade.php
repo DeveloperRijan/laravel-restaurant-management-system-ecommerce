@@ -63,7 +63,7 @@
                </td>
                <td>
                   <div class="btn-group btn-group-sm">
-                    <a href="" class="btn btn-link" data-toggle="modal" data-target="#viewUserDetailsModal-{{$user->id}}">
+                    <a href="{{route('ks.user.show', encrypt($user->id))}}" class="btn btn-link">
                       <i class="fa fa-eye"></i>
                     </a>
 

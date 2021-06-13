@@ -19,6 +19,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600" rel="stylesheet">
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}backend/css/custom.css">
+    <link rel="stylesheet" href="{{$publicAssetsPathStart}}plugins/processing_gif/form-processing-style.css" />
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}backend/css/primary.css">
     @yield('css_custom')
     @stack("styles")
@@ -124,7 +125,7 @@
         </footer>
 
     </div>
-
+    @include("processing_gif.processing_gif")
 
 
     <!-- jQuery -->

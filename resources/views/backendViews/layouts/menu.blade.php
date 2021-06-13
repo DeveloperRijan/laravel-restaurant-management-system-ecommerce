@@ -135,6 +135,22 @@
      </ul>
   </li>
 
+  <li class="nav-item has-treeview ">
+     <a href="#" class="nav-link ">
+        <i class="nav-icon fa fa-cutlery"></i>            
+        <p>Company <i class="right fa fa-angle-left"></i>
+        </p>
+     </a>
+     <ul class="nav nav-treeview">
+        <li class="nav-item">
+           <a class="nav-link " href="{{route('admin.companies.index')}}?status=active">
+              <i class="nav-icon fa fa-reorder"></i>
+              <p>Companies</p>
+           </a>
+        </li>
+     </ul>
+  </li>
+
 
   <li class="nav-header">Settings</li>
   <li class="nav-item has-treeview ">
