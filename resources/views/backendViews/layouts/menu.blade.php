@@ -143,7 +143,7 @@
      </a>
      <ul class="nav nav-treeview">
         <li class="nav-item">
-           <a class="nav-link " href="{{route('admin.companies.index')}}?status=active">
+           <a class="nav-link " href="{{route('admin.companies.index')}}?status=Active">
               <i class="nav-icon fa fa-reorder"></i>
               <p>Companies</p>
            </a>

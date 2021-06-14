@@ -77,10 +77,15 @@
                <td>
                  <span class="badge {{ ($company->status === 'Active' ? 'badge-success' : 'badge-danger') }}">{{$company->status}}</span>
                </td>
+               <td><small>{{$company->discount_percent}}%</small></td>
                <td>
                   <div class="btn-group btn-group-sm">
-                     <a href="{{route('admin.products.edit', encrypt($company->id))}}" class="btn btn-link">
-                     <i class="fa fa-edit"></i>
+                    <a href="{{route('admin.companies.show', encrypt($company->id))}}" class="btn btn-link">
+                      <i class="fa fa-eye"></i>
+                    </a>
+
+                     <a href="{{route('admin.companies.edit', encrypt($company->id))}}" class="btn btn-link">
+                      <i class="fa fa-edit"></i>
                      </a>
 
                      <a onclick="return confirm('Are you sure to DELETE?\nRemember : The action will not be revert!')" href="{{route('admin.product.action', [encrypt($company->id), encrypt('SoftDelete')])}}" class="btn btn-link">
