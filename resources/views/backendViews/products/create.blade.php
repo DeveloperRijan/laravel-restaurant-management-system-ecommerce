@@ -140,6 +140,18 @@
           <label>Note <small>(optional)</small></label>
           <textarea class="form-control" name="note" rows="3" class="10" placeholder="Note (max {{\Config::get('constants.PRODUCT.NOTE_STRING_MAX')}} characters)">{!! old('note') !!}</textarea>
         </div>
+
+        <div class="form-group" style="padding: 10px; border: 1px solid #ddd">
+          
+          <div class="d-flex justify-content-between">
+            <label>Add Options <small>(Optional)</small></label>
+            <button class="btn btn-warning btn-sm" type="button" id="add_options_btn">Add Option</button>  
+          </div>
+
+          <div>
+            @include("backendViews.products.partials.options")
+          </div>
+        </div>
         
         <button class="btn btn-primary btn-sm" type="submit">Submit</button>
       </form>

@@ -47,18 +47,24 @@
       </ul>
     </div>
     <div class="card-body">
+
       <div class="d-flex justify-content-end">
+        <a href="{{route('admin.companies.edit', encrypt($company->id))}}" class="btn btn-info btn-sm mr-2">Edit</a>
+
         @if($company->status === "Active")
-        <a onclick="return confirm('Are you sure to Inactive?\n Once you inactive no new staff can singup with this company until you re-active!')" href="{{route('admin.companyActions', [encrypt($company->id), encrypt('Inactive')])}}" class="btn btn-warning btn-sm">Active</a>
+        <a onclick="return confirm('Are you sure to Inactive?\n Once you inactive, staffs can not singup with this company until you re-active!')" href="{{route('admin.companyActions', [encrypt($company->id), encrypt('Inactive')])}}" class="btn btn-warning btn-sm">Inactive</a>
         @else
         <a onclick="return confirm('Are you sure to Inactive?\n Once you inactive no new staff can singup with this company until you re-active!')" href="{{route('admin.companyActions', [encrypt($company->id), encrypt('Active')])}}" class="btn btn-success btn-sm">Active</a>
         @endif
-
-        <a href="" class="btn btn-info btn-sm"></a>
       </div>
 
       <div class="table-responsive">
         <table class="table">
+          <tr>
+            <th width="30%"><small>Status</small></th>
+            <td width="4%"><small>:</small></td>
+            <td><small><span class="badge badge-info">{{$company->status}}</span></small></td>
+          </tr>
           <tr>
             <th width="30%"><small>Name</small></th>
             <td width="4%"><small>:</small></td>

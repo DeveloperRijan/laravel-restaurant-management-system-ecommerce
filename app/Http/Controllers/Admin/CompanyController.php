@@ -205,5 +205,12 @@ class CompanyController extends Controller
 
     public function actions($id, $actionType){
         $data = Company::where('id', decrypt($id))->first();
+        if (!$data) {
+            return abort(404);
+        }
+        $data->update([
+            "status"=>decrypt($actionType)
+        ]);
+        return redirect()->back()->with("success", "The company is ".decrypt($actionType));
     }
 }

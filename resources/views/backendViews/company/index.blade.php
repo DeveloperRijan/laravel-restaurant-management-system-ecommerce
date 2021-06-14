@@ -40,10 +40,10 @@
     <div class="card-header">
       <ul class="nav nav-tabs align-items-end card-header-tabs w-100">
         <li class="nav-item">
-          <a class="nav-link active" href="{!! url()->current() !!}"><i class="fa fa-list mr-2"></i>Companies</a>
+          <a class="nav-link @if(\Request::get('status') === 'Active') active @endif " href="{{route('admin.companies.index')}}?status=Active"><i class="fa fa-list mr-2"></i>Companies</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('admin.products.create')}}"><i class="fa fa-plus mr-2"></i>Inactive List</a>
+          <a class="nav-link @if(\Request::get('status') === 'Inactive') active @endif " href="{{route('admin.companies.index')}}?status=Inactive"><i class="fa fa-plus mr-2"></i>Inactive List</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href=""
@@ -87,10 +87,7 @@
                      <a href="{{route('admin.companies.edit', encrypt($company->id))}}" class="btn btn-link">
                       <i class="fa fa-edit"></i>
                      </a>
-
-                     <a onclick="return confirm('Are you sure to DELETE?\nRemember : The action will not be revert!')" href="{{route('admin.product.action', [encrypt($company->id), encrypt('SoftDelete')])}}" class="btn btn-link">
-                      <i class="fa fa-trash"></i>
-                     </a>
+                     
                   </div>
                </td>
             </tr>

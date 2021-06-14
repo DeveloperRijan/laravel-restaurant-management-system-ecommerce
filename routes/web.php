@@ -324,5 +324,5 @@ Route::group(["prefix"=>"admin", "as"=>"admin.", "middleware"=>["auth", "adminMW
     
     #Company Management
     Route::resource("companies", CompanyController::class);
-    Route::resource("company_actions", [CompanyController::class, "actions"])->name("companyActions");
+    Route::get("company_actions/{id}/{actionType}", [CompanyController::class, "actions"])->name("companyActions");
 });
