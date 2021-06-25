@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Designation;
+use App\Models\Company;
 use App\Models\StaffInvitation;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -148,13 +149,11 @@ class RegisterController extends Controller
             'name'=>'required|string|max:60',
             'email'=>'required|string|email|max:99|unique:users',
             'phone'=>'required|numeric|digits:'.\Config::get('constants.PHONE_NUM_LENGTH'),
-            'code'=>'required|string|max:99|unique:users',
-            'company_name'=>'required|string|max:99',
             'address_line_one'=>'required|string|max:150',
             'address_line_two'=>'nullable|string|max:150',
             'city'=>'required|string|max:50',
             'state'=>'required|string|max:50',
-            'can_order_any_time'=>'required|string|in:Yes,No',
+            'company'=>'required|numeric',
             'designation'=>'required|numeric',
             'password'=>'required|string|min:8|max:16|confirmed'
         ]);
@@ -164,19 +163,16 @@ class RegisterController extends Controller
             //return redirect()->back()->with('error', $validation->errors()->first());
         }
 
-        if ($request->can_order_any_time === "Yes") {
-            $validation = Validator::make($request->all(), [
-                'start_time'=>'required|date_format:H:i',
-                'end_time'=>'required|date_format:H:i|after:start_time',
-                'start_day'=>'required|string|in:'.implode(",", \Config::get("constants.WEEK_DAYS")),
-                'end_day'=>'required|string|in:'.implode(",", \Config::get("constants.WEEK_DAYS")),
-            ]);
-        }
-
         //validate designation
         $designation = Designation::where('id', $request->designation)->first();
         if (!$designation) {
             return response()->json(["msg"=>"Invalid Designation Selected"], 422);
+        }
+
+        //validate company
+        $company = Company::where('id', $request->company)->where('status', "Active")->first();
+        if (!$company) {
+            return response()->json(["msg"=>"Invalid Company Selected"], 422);
         }
         
 
@@ -185,17 +181,11 @@ class RegisterController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'phone'=>$request->phone,
-            'code'=>$request->code,
-            'company_name'=>$request->company_name,
             'address_line_one'=>$request->address_line_one,
             'address_line_two'=>$request->address_line_two,
             'city'=>$request->city,
             'state'=>$request->state,
-            'can_order_any_time'=>$request->can_order_any_time,
-            'start_time'=>$request->start_time,
-            'end_time'=>$request->end_time,
-            'start_day'=>$request->start_day,
-            'end_day'=>$request->end_day,
+            'company_id'=>$company->id,
             'designation_id'=>$designation->id,
             'password'=>Hash::make($request->password),
             'status'=>"Pending",

@@ -33,15 +33,6 @@
                                  <label for="phone"><i class="zmdi fas fa-phone"></i></label>
                                  <input type="tel" name="phone" id="phone" placeholder="* Your Phone">
                               </div>
-                              <div class="form-group">
-                                 <label for="code"><i class="zmdi fas fa-map-pin"></i></label>
-                                 <input type="text" name="code" id="code" placeholder="* Company Code">
-                              </div>
-                              <div class="form-group">
-                                 <label for="code"><i class="zmdi fas fa-pencil-alt"></i></label>
-                                 <input type="text" name="company_name" id="company_name" placeholder="* Company Name">
-                              </div>
-
                               
                               <div class="form-group">
                                  <label for="address_line_one"><i class="zmdi fas fa-map"></i></label>
@@ -67,48 +58,22 @@
 
 
                               <div class="form-group">
-                                 <div>
-                                    <div class="d-flex justify-content-start">
-                                       <div><i class="zmdi fas fa-clock"></i></div>
-                                       <label style="position: inherit; display: block; margin-top: 13px; margin-left:10px; color: #777; font-size: 15px;">Company Allowcated Hours</label>
-                                    </div>
-                                 </div>
-                                 <div class="form-group">
-                                    <div>
-                                       <small><span>* Can Order Any Time</span></small>
-                                    </div>
-                                    <div>
-                                       <input checked="1" value="Yes" type="radio" name="can_order_any_time" id="can_order_any_time_yes" style="width: fit-content; display: inline-block;"> Yes
-                                       <input value="No" type="radio" name="can_order_any_time" id="can_order_any_time_no" style="width: fit-content; display: inline-block;"> No
-                                    </div>
-                                 </div>
-
-                                 <div class="allocate_hrs_input_block d-none">
-                                    <div class="d-flex justify-content-between">
-                                       <input type="time" name="start_time" id="company_allocated_time" placeholder="* Company Allocated Hours">
-                                       to
-                                       <input type="time" name="end_time" id="company_allocated_time" placeholder="* Company Allocated Hours">
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                       <select name="start_day" style="width: 100%; display: block; border: none; border-bottom: 1px solid #999; padding: 6px 30px; font-family: Poppins; box-sizing: border-box;">
-                                          @foreach(\Config::get("constants.WEEK_DAYS") as $key=>$day)
-                                             <option value="{{$day}}">{{$day}}</option>
-                                          @endforeach
-                                       </select>
-                                       To
-                                       <select name="end_day" style="width: 100%; display: block; border: none; border-bottom: 1px solid #999; padding: 6px 30px; font-family: Poppins; box-sizing: border-box;">
-                                          @foreach(\Config::get("constants.WEEK_DAYS") as $key=>$day)
-                                             <option value="{{$day}}">{{$day}}</option>
-                                          @endforeach
-                                       </select>
-                                    </div>
-                                 </div>
+                                 <label for="company"><i class="zmdi fas fa-box"></i></label>
+                                 <select name="company" id="company" style="width: 100%; display: block; border: none; border-bottom: 1px solid #999; padding: 6px 30px; font-family: Poppins; box-sizing: border-box;">
+                                    <option value="">Select Company</option>
+                                    <?php
+                                       //get designatins
+                                       $companies = \App\Models\Company::where('status', "Active")->orderBy("name", "ASC")->get();
+                                       foreach ($companies as $key => $com) {
+                                          echo "<option value='".$com->id."'>".$com->name.' - '.$com->code."</option>";
+                                       }
+                                    ?>
+                                 </select>
                               </div>
-
                               <div class="form-group">
                                  <label for="designation"><i class="zmdi fas fa-user-shield"></i></label>
                                  <select name="designation" id="designation" style="width: 100%; display: block; border: none; border-bottom: 1px solid #999; padding: 6px 30px; font-family: Poppins; box-sizing: border-box;">
-                                    <option value="">Select</option>
+                                    <option value="">Select Designation</option>
                                     <?php
                                        //get designatins
                                        $designations = \App\Models\Designation::orderBy("title", "ASC")->get();
@@ -329,16 +294,6 @@
 
 
 @push("scripts")
-
-<script type="text/javascript">
-   $("form input[name='can_order_any_time']").on("click", function(){
-      if ($(this).val() === "Yes") {
-         $("div.allocate_hrs_input_block").addClass("d-none")
-      }else{
-         $("div.allocate_hrs_input_block").removeClass("d-none")
-      }
-   })
-</script>
 
 <script type="text/javascript">
    $("#loginRegisterModal form#login-form").on('submit', function(e){

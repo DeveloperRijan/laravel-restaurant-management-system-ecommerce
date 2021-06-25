@@ -25,6 +25,7 @@
       </div>
       <div class="col-md-8 col-xl-6 chat">
          <div class="card">
+            
             <div class="card-header msg_head">
                <div class="d-flex bd-highlight">
                   <div class="user_info">
@@ -37,7 +38,7 @@
                <span id="action_menu_btn"><i class="fa fa-ellipsis-v"></i></span>
                <div class="action_menu">
                   <ul>
-                     <li><i class="fa fa-user"></i> <a href="{{route('')}}">Profile</a></li>
+                     <li><i class="fa fa-user"></i> <a href="">Profile</a></li>
                      <li><i class="fa fa-times"></i> <a href="">Close Ticket</a></li>
                   </ul>
                </div>
