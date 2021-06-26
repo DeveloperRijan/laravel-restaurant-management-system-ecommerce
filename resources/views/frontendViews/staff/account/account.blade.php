@@ -57,6 +57,7 @@
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <a href="{{route('staff.account.get')}}?data=profile" class="nav-link @if(\Request::get('data') === 'profile' || \Request::get('data') === 'password') active @endif ">Profile</a>
                   <a href="{{route('staff.account.get')}}?data=orders" class="nav-link @if(\Request::get('data') === 'orders') active @endif ">Orders</a>
+                  <a href="" class="nav-link">My Coupons</a>
                   <a href="{{route('staff.account.get')}}?data=credit&type=balance" class="nav-link @if(\Request::get('data') === 'credit') active @endif ">Credit</a>
                 
                   <a href="" class="nav-link" aria-selected="false"

@@ -301,19 +301,21 @@ function getCartTotalItems(){
 //control qty in modal
 $("#loadDynamicProductDetailsHTML").on("click", "button.increase", function(){
 	let sellingPrice = $("#loadDynamicProductDetailsHTML input[name='selling_price']").val()
+	let currentSum = $("#loadDynamicProductDetailsHTML .inner-selling-price").html()
 	let qty = $("#loadDynamicProductDetailsHTML input[name='qty']").val()
 	qty = parseInt(qty) + 1
 
 	$("#loadDynamicProductDetailsHTML .qty-control input[name='qty']").val(qty)
 	$("#loadDynamicProductDetailsHTML .qty-val").html(qty)
 
-	sellingPrice = (parseFloat(sellingPrice).toFixed(2)) * qty
-	sellingPrice = (parseFloat(sellingPrice).toFixed(2))
-	$("#loadDynamicProductDetailsHTML .inner-selling-price").html(sellingPrice)
+	total = parseFloat(currentSum) + parseFloat(sellingPrice)
+	total = (parseFloat(total).toFixed(2))
+	$("#loadDynamicProductDetailsHTML .inner-selling-price").html(total)
 })
 
 $("#loadDynamicProductDetailsHTML").on("click", "button.decrease", function(){
 	let sellingPrice = $("#loadDynamicProductDetailsHTML input[name='selling_price']").val()
+	let currentSum = $("#loadDynamicProductDetailsHTML .inner-selling-price").html()
 	let qty = $("#loadDynamicProductDetailsHTML input[name='qty']").val()
 	qty = parseInt(qty)
 
@@ -326,8 +328,8 @@ $("#loadDynamicProductDetailsHTML").on("click", "button.decrease", function(){
 	$("#loadDynamicProductDetailsHTML .qty-control input[name='qty']").val(qty)
 	$("#loadDynamicProductDetailsHTML .qty-val").html(qty)
 
-	sellingPrice = (parseFloat(sellingPrice).toFixed(2)) * qty
-	sellingPrice = (parseFloat(sellingPrice).toFixed(2))
-	$("#loadDynamicProductDetailsHTML .inner-selling-price").html(sellingPrice)
+	total = parseFloat(currentSum) - parseFloat(sellingPrice)
+	total = (parseFloat(total).toFixed(2))
+	$("#loadDynamicProductDetailsHTML .inner-selling-price").html(total)
 })
 

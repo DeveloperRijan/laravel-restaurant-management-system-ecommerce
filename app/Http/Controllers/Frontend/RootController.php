@@ -11,33 +11,11 @@ use App\Models\Product;
 class RootController extends Controller
 {
     public function index(){
-    	//get menus
-    	$homeCategories = Category::where("type", "Main")->inRandomOrder()->take(8)->get();
-
-    	//get home contents
-    	$homeContentsConfig = HomeContent::get();
-    	$homeContentRow1 = NULL;
-    	$homeContentRow2 = NULL;
-    	$homeContentRow3 = NULL;
-
-    	if (!$homeContentsConfig->isEmpty()) {
-    		foreach ($homeContentsConfig as $key => $row) {
-    			//get row 1 contents
-    			if ($row->position_no == 1) {
-    				$homeContentRow1 = $this->getRawContent($row);
-    			}
-
-    			if ($row->position_no == 2) {
-    				$homeContentRow2 = $this->getRawContent($row);
-    			}
-
-    			if ($row->position_no == 3) {
-    				$homeContentRow3 = $this->getRawContent($row);
-    			}
-    		}
-    	}
-
-    	return view("frontendViews.index", compact('homeCategories', 'homeContentRow1', 'homeContentRow2', 'homeContentRow3'));
+    	$categories = Category::where('type', "Main")
+        ->orderBy("name", "ASC")
+        ->with("get_products")
+        ->get();
+    	return view("frontendViews.index", compact('categories'));
     }
 
 

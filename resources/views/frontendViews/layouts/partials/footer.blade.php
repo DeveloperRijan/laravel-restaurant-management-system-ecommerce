@@ -252,6 +252,18 @@
       })
     </script>
     @endif
+
+
+
+
+    <script type="text/javascript">
+      //scroll to section
+      $("div.nav-categories ul li a.nav-to-scroll-section").on("click", function(e){
+        e.preventDefault()
+        document.getElementById($(this).attr("target-section")).scrollIntoView();
+      })
+      
+    </script>
 </body>
 
 </html>

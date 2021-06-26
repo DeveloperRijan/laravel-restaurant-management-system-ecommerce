@@ -55,29 +55,12 @@ class StaffController extends Controller
 
 
 	public function staff(){
-		$categories = Category::inRandomOrder()->where('type', "Staff")->pluck("id")->toArray();
-		
-		$staffContentRow1 = Product::inRandomOrder()
-							->whereIn('category_id', $categories)
-							->where('type', "Staff")
-							->where('item_type', "Meal")
-							->where('status', "Active")
-							->take(\Config::get("constants.PRODUCT.HOME_PROUDUTS_LOAD"))
-							->with('get_category')
-							->orderBy("created_at", "DESC")
-							->get();
+		$categories = Category::where('type', "Staff")
+            ->orderBy("name", "ASC")
+            ->with("get_products")
+            ->get();
 
-		$staffContentRow2 = Product::inRandomOrder()
-							->whereIn('category_id', $categories)
-							->where('type', "Staff")
-							->where('item_type', "Product")
-							->where('status', "Active")
-							->take(\Config::get("constants.PRODUCT.HOME_PROUDUTS_LOAD"))
-							->with('get_category')
-							->orderBy("created_at", "DESC")
-							->get();
-
-		return view("frontendViews.staff.index", compact('staffContentRow1', 'staffContentRow2'));
+		return view("frontendViews.staff.index", compact('categories'));
 	}
 
 

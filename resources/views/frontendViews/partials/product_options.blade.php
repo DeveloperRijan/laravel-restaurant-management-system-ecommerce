@@ -21,7 +21,7 @@
 			  					ec="{{$field['extra_charge']}}"
 			  					label-key='{{$key}}' field-key='{{$fieldKey}}'
 			  					class="option_field_{{$key}}"
-			  					value="{{$key}}__{{$fieldKey}}"> 
+			  					value="{{$key}}_{{$fieldKey}}"> 
 			  					<label for="field_{{$fieldKey}}">{{$field['option_name']}}</label>
 			  				</div>
 			  				<div>

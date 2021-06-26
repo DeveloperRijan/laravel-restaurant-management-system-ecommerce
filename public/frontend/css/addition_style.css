@@ -1,9 +1,8 @@
 .home_section_headerTxt{
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    height: 80px;
     font-size: 35px;
-    padding-left: 21px;
+    padding: 10px;
     border-width: 1px;
     color: #ff5401;
     border-style: dashed;

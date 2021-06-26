@@ -78,53 +78,6 @@
            <input value="{{$user->state}}" type="text" name="state" id="state" placeholder="* State" class="form-control">
         </div>
 
-
-        <div class="form-group allocated_hrs_block">
-          <div class="text-center">
-            <label><i class="zmdi fa fa-clock-alt"></i> Company Allowcated Hours *</label>
-          </div>
-
-          <div class="">
-            <small><span>Can Order Any Time</span></small><br>
-            <input @if($user->can_order_any_time === "Yes") checked="1" @endif type="radio" name="can_order_any_time" value="Yes" class="mr-3"> Yes 
-            <input @if($user->can_order_any_time === "No") checked="1" @endif type="radio" name="can_order_any_time" value="No"> No 
-          </div>
-
-            <div class="allocate_hrs_input_block @if($user->can_order_any_time === 'Yes') d-none @endif ">
-               <div class="d-flex justify-content-center wrapper__">
-                  
-                  <div class="mr-2 mb-2">
-                    <input value="{{$user->start_time}}" type="time" name="start_time" id="company_allocated_time" placeholder="* Company Allocated Hours">
-                    <span>to</span>
-                    <input value="{{$user->end_time}}" type="time" name="end_time" id="company_allocated_time" placeholder="* Company Allocated Hours">
-                  </div>
-
-                  <div>
-                    <select name="start_day">
-                       @foreach(\Config::get("constants.WEEK_DAYS") as $key=>$day)
-                          @if($user->start_day === $day)
-                            <option selected="1" value="{{$day}}">{{$day}}</option>
-                          @else
-                            <option value="{{$day}}">{{$day}}</option>
-                          @endif
-                       @endforeach
-                    </select>
-                    <span>to</span>
-                    <select name="end_day">
-                       @foreach(\Config::get("constants.WEEK_DAYS") as $key=>$day)
-                          @if($user->end_day === $day)
-                            <option selected="1" value="{{$day}}">{{$day}}</option>
-                          @else
-                            <option value="{{$day}}">{{$day}}</option>
-                          @endif
-                       @endforeach
-                    </select>
-                 </div>
-               </div>
-            </div>
-
-        </div>
-
         <div class="form-group">
            <label for="designation"><i class="zmdi fa fa-user-shield"></i> Designation *</label>
            <select name="designation" id="designation" class="form-control">
@@ -150,18 +103,3 @@
 
 	
 </div>
-
-
-
-@push("scripts")
-<script type="text/javascript">
-   $("form input[name='can_order_any_time']").on("click", function(){
-      if ($(this).val() === "Yes") {
-         $("div.allocate_hrs_input_block").addClass("d-none")
-      }else{
-         $("div.allocate_hrs_input_block").removeClass("d-none")
-         $(this).val("No")
-      }
-   })
-</script>
-@endpush

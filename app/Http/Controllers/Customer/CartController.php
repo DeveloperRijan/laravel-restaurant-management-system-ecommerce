@@ -127,7 +127,6 @@ class CartController extends Controller
 
     //order now link
     public function order_now_btn(Request $request){
-        return $request;
         if (!Auth::check()) {
             return abort(403);
         }

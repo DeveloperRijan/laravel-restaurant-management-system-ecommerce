@@ -1,19 +1,36 @@
 @extends("frontendViews.layouts.master")
 
 @section("content")
+    
+    @if(count($categories) > 0)
+    <div class="nav-categories">
+      <ul class="nav justify-content-center">
+        @foreach($categories as $key=>$category)
+          @if(count($category->get_products) > 0)
+          <li class="nav-item">
+            <a class="nav-link active nav-to-scroll-section" aria-current="page" href="" target-section="section--number--{{$key}}">{{$category->name}}</a>
+          </li>
+          @endif
+        @endforeach
+      </ul>
+    </div>
+    @endif
 
-    <!--  foods section starts -->
-    <section id="popular_foods">
-        <div class="inner_popular container">
-          <h1 class = "home_section_headerTxt">Offers/Meals Of The Day </h1>
-          <div class="row">
-            @if($homeContentRow1 !== NULL && count($homeContentRow1) > 0)
-              @include("frontendViews.partials.item-list", ['products'=>$homeContentRow1])
-            @endif
+
+  @if(count($categories) > 0)
+    @if(count($category->get_products) > 0)
+      <!--  foods section starts -->
+      <section id="section--number--0">
+          <div class="inner_popular container">
+            <h1 class = "home_section_headerTxt">{{$categories[0]->name}}</h1>
+            <div class="row">
+                @include("frontendViews.partials.item-list", ['products'=>$categories[0]['get_products']])
+            </div>
           </div>
-        </div>
-    </section>
-    <!-- foods section ends -->
+      </section>
+      <!-- foods section ends -->
+      @endif
+  @endif
 
   @if($frontendUIData)
     <div data-section="ordering-steps" class="section dark" style="background-image: url('{{$publicAssetsPathStart}}frontend/images/dark-pattern-2-steps.jpg')">
@@ -51,34 +68,21 @@
   @endif
 
 
+  @if(count($categories) > 1)
     <!--  foods section starts -->
-    <section id="popular_foods">
-        <div class="inner_popular container">
-            <h1 class = "home_section_headerTxt">Family Orders </h1>
-            <div class="row">
-              @if($homeContentRow2 !== NULL && count($homeContentRow2) > 0)
-                  @include("frontendViews.partials.item-list", ['products'=>$homeContentRow2])
-              @endif
-            </div>
-
-        </div>
-    </section>
+    @foreach($categories as $key=>$category)
+      @if($key != 0 && count($category->get_products) > 0)
+      <section id="section--number--{{$key}}">
+          <div class="inner_popular container">
+              <h1 class = "home_section_headerTxt">{{$category->name}}</h1>
+              <div class="row">
+                @include("frontendViews.partials.item-list", ['products'=>$category->get_products])
+              </div>
+          </div>
+      </section>
+      @endif
+    @endforeach
     <!-- foods section ends -->
-
-
-
-    @if($homeContentRow3 !== NULL && count($homeContentRow3) > 0)
-    <!--  foods section starts -->
-    <section id="popular_foods">
-        <div class="inner_popular container">
-          <h1 class = "home_section_headerTxt">Items of the Day </h1>
-            <div class="row">
-              @include("frontendViews.partials.item-list", ['products'=>$homeContentRow3])
-            </div>
-        </div>
-    </section>
-    <!-- foods section ends -->
-    @endif
-
+  @endif
 
 @endsection

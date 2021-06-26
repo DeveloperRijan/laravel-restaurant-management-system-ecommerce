@@ -20,12 +20,16 @@
               <p>Frontend & Contacts</p>
            </a>
         </li>
+        
+        {{--
         <li class="nav-item">
            <a class="nav-link " href="{{route('admin.home-content.index')}}">
               <i class="nav-icon fa fa-reorder"></i>
               <p>Home Content</p>
            </a>
         </li>
+        --}}
+
         <li class="nav-item">
            <a class="nav-link " href="{{route('admin.sliders.index')}}">
               <i class="nav-icon fa fa-reorder"></i>

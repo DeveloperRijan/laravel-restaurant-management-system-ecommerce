@@ -263,7 +263,7 @@ Route::group(["prefix"=>"admin", "as"=>"admin.", "middleware"=>["auth", "adminMW
     Route::resource("frontend-ui", FrontendUIController::class);
 
     #Home Content Setup
-    Route::resource("home-content", HomeContentController::class);
+    //Route::resource("home-content", HomeContentController::class);
 
     #Payment Gateway
     Route::resource("payment-gateway", PaymentGatewayController::class);

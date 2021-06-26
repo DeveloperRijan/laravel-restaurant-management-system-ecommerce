@@ -193,7 +193,7 @@
                             </div>
                           </div>
                         @else
-                          <a href="{{route('staff.order.page')}}?product_id={{encrypt($productDetailsData->id)}}" class="btn order-now-link" style="width: 100%;cursor: pointer;">ORDER NOW</a>
+                          <a href="{{route('staff.order.page')}}?product_id={{encrypt($productDetailsData->id)}}" class="btn @if(!Auth::check()) _showLoginModal @endif " style="width: 100%;cursor: pointer;">ORDER NOW</a>
                         @endif
                      </div>
                   </div>

@@ -18,4 +18,8 @@ class Category extends Model
     	"created_by",
     	"creator_id"
     ];
+
+    public function get_products(){
+        return $this->hasMany("App\Models\Product", "category_id", "id")->where("status", "Active")->orderBy("created_at", "DESC");
+    }
 }
