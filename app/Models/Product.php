@@ -22,6 +22,7 @@ class Product extends Model
     	"images",
         "field_names",
         "field_values",
+        "options",
         "size",
         "note",
     	"total_feedback",

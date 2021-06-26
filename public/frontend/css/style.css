@@ -1140,9 +1140,7 @@ inner_easy_order {
 }
 
 #loadDynamicProductDetailsHTML .txt-wrapper .booking-checkbox_wrap{
-    padding: 15px;
-    border-top: 2px dashed #ddd;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 
@@ -1225,6 +1223,17 @@ inner_easy_order {
     padding: 10px
 }
 
+
+
+
+
+/*product specifications in details modal*/
+table.tbl-spec th,
+table.tbl-spec td
+{
+    padding: 0;
+    border: none;
+}
 
 
 /*responsive elements*/

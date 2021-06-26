@@ -237,7 +237,7 @@
          //var form_data = form.serialize();
    
          formSubmitWithFile("productCreateForm", url, type);
-     })
+    })
 </script>
 <script type="text/javascript" src="{{$publicAssetsPathStart}}plugins/form_submitter/general-form-submit.js"></script>
 <script type="text/javascript" src="{{$publicAssetsPathStart}}plugins/sw_alert/sweetalert2@10.js"></script>

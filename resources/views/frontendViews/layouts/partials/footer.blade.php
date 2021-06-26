@@ -154,6 +154,7 @@
     <script type="text/javascript" src="{{$publicAssetsPathStart}}plugins/form_submitter/general-form-submit.js"></script>
     <script type="text/javascript" src="{{$publicAssetsPathStart}}plugins/sw_alert/sweetalert2@10.js"></script>
     <script src="{{$publicAssetsPathStart}}frontend/js/scripts.js"></script>
+    <script src="{{$publicAssetsPathStart}}frontend/js/product_options.js"></script>
     
 
     @if(\Session::has("sw_alert_session_success"))
@@ -230,7 +231,7 @@
         e.preventDefault()
         let qty = $("#loadDynamicProductDetailsHTML input[name='qty']").val()
         let productID = $("#loadDynamicProductDetailsHTML input[name='product_id']").val()
-        window.location.href = "{{route('orderNow.item')}}?product_id="+productID+"&qty="+qty
+        //window.location.href = "{{route('orderNow.item')}}?product_id="+productID+"&qty="+qty
       })
     </script>
     @elseif(Auth::check() && Auth::user()->type === "Staff")
@@ -240,16 +241,14 @@
         e.preventDefault()
         let qty = $("#loadDynamicProductDetailsHTML input[name='qty']").val()
         let productID = $("#loadDynamicProductDetailsHTML input[name='product_id']").val()
-        window.location.href = "{{route('orderNow.item')}}?product_id="+productID+"&qty="+qty
+        //window.location.href = "{{route('orderNow.item')}}?product_id="+productID+"&qty="+qty
       })
     </script>
     @else
     <script type="text/javascript">
       //if clicked order btn then
       $("#loadDynamicProductDetailsHTML").on("click", "a.order-now-link", function(e){
-        e.preventDefault()
-        alert("SORRY - Please Login to continue")
-        
+        e.preventDefault()        
       })
     </script>
     @endif

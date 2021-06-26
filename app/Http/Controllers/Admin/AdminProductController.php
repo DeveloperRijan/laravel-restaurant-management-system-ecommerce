@@ -62,10 +62,13 @@ class AdminProductController extends Controller
             "description"=>"required|string|max:".\Config::get("constants.PRODUCT.DESCRIPTION_LENGTH"),
             "price"=>"required|min:1",
             "discount_price"=>"required|min:0",
+
             "field_names"=>"nullable|array|max:20",
             "field_names.*"=>"required|string",
             "field_values"=>"nullable|array|max:20",
             "field_values.*"=>"required|string",
+            "options"=>"nullable|array",
+
             "images"=>"required|array|min:1|max:".\Config::get("constants.PRODUCT.ALLOW_IMAGES"),
             "images.*"=>"required|image|mimes:png,jpeg,jpg,gif",
             "size"=>"required|string|in:large,small",
@@ -119,6 +122,7 @@ class AdminProductController extends Controller
             "discount_price"=>$request->discount_price,
             "field_names"=>($request->field_names == '' ? NULL : json_encode($request->field_names)),
             "field_values"=>($request->field_values == '' ? NULL : json_encode($request->field_values)),
+            "options"=>($request->options == '' ? NULL : json_encode($request->options)),
             "images"=>json_encode($images),
             "size"=>$request->size,
             "note"=>$request->note,

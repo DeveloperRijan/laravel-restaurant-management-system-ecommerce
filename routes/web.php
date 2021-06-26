@@ -85,7 +85,7 @@ Route::post("/search_post_code", [SearchPostCodeController::class, "search_post_
 
 //cart items
 Route::get("cart-items", [CartController::class, "get_cart_items"])->name("get.cart.items");
-Route::get("order-now", [CartController::class, "order_now"])->name("orderNow.item");
+Route::post("order-now-btn", [CartController::class, "order_now_btn"])->name("orderNow.item");
 
 #Feedback - like a product
 Route::post("feedback", [FeedbackController::class, "feedback_post"]);

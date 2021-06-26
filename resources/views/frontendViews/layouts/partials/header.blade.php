@@ -53,6 +53,7 @@
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/custom.css" />
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/signup-signin.css" />
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}plugins/processing_gif/form-processing-style.css" />
+    <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/product_options.css" />
     <link rel="stylesheet" href="{{$publicAssetsPathStart}}frontend/css/responsive.css" />
 
 

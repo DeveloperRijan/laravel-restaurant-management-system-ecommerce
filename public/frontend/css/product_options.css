@@ -1,0 +1,27 @@
+.product-options-block .single-option-wrapper button.option-btn{
+	background: #ddd;
+    border: 1px solid #ddd;
+    width: 100%;
+    color: #212121;
+    text-align: left;
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+}
+.product-options-block .single-option-wrapper button.option-btn:focus{
+	box-shadow:none;
+}
+
+
+.product-options-block .single-option-wrapper .card{
+	border: none;
+	margin-bottom: 15px
+}
+
+.product-options-block .single-option-wrapper .card ul{
+	padding: 0;
+    margin: 0;
+    outline: 0;
+    list-style: none;
+}

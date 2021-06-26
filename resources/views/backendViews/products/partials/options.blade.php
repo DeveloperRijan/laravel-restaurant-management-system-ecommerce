@@ -17,7 +17,7 @@
 @push("scripts")
 <script type="text/javascript">
 	var option_row_counter = 0;
-	var option_field_counter = 0;
+	var option_field_counter = 1;
 
 	//if click on button then
 	$("button#add_options_btn").on("click", function(){
@@ -78,7 +78,7 @@
 			        			"</div>"+
 			        		"</td>"+
 			        	"</tr>";
-
+		console.log(filed_html)
 		$("tbody#append_options_data table#options_tbl_id_"+tblID).append(filed_html)
 		option_field_counter++
 	})
